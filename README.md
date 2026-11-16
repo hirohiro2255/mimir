@@ -33,6 +33,6 @@ project-minus-one/
 └── tests/              # created as tests begin
 ```
 
-Current progress is recorded in [MILESTONES.md](MILESTONES.md) and [SESSION_HANDOFF.md](SESSION_HANDOFF.md). **Last confirmed step:** −1.0.89. **Next unfinished step:** −1.0.90, introduced but not completed. The learner verified restored output `3 9` and `4 16`; adding `const` to the function definition's by-value parameter is pending.
+Current progress is recorded in [MILESTONES.md](MILESTONES.md) and [SESSION_HANDOFF.md](SESSION_HANDOFF.md). **Last confirmed step:** −1.0.102. **Next unfinished step:** −1.0.103 — change only the initial value of x from -3.0 to 0.0. The learner confirmed output `-3 9` and `4 16`; square's definition now takes a const double parameter. The next edit is planned and has not been performed.
 
 The comprehensive C++ benchmark is in [CPP_CURRICULUM.md](CPP_CURRICULUM.md). Selective applied data structures, correctness, complexity and representation decisions are in [DSA_CURRICULUM.md](DSA_CURRICULUM.md), informed by Goodrich/Tamassia/Mount, Weiss and CLRS without requiring every textbook subject inside the numerical engine. These documents describe plans and evidence, not generated implementation code.

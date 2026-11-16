@@ -1,10 +1,10 @@
 # Mímir — Milestones and Current Progress
 
-**Checkpoint date:** 16 November 2026  
+**Checkpoint date:** 17 November 2026  
 **Project:** −1 — C++ mastery through numerical computing  
 **Phase:** 0 — Mathematical Function Explorer  
-**Last explicitly confirmed step:** **−1.0.89**  
-**Next uncompleted step:** **−1.0.90**
+**Last explicitly confirmed step:** **−1.0.102**  
+**Next uncompleted step:** **−1.0.103**
 
 This register is reconstructed from the learner's reports in the conversation. It is **not an independent inspection** of the Mac's `mimir/` directory. Do not infer unreported Git commits, test runs or file contents. Two steps were covered without a separately recorded command result; this does **not** block proceeding to the agreed next step.
 
@@ -104,15 +104,30 @@ This register is reconstructed from the learner's reports in the conversation. I
 | **−1.0.88** | Compile restored square; no diagnostics reported | DONE — learner confirmation / pasted statement / reported output as described |
 | **−1.0.89** | Run restored baseline; rows 3 9 and 4 16 confirmed | DONE — learner confirmation / pasted statement / reported output as described |
 
+| **−1.0.90** | Protect definition parameter with const; initial return-type placement corrected by learner; definition reviewed | DONE — learner evidence as described |
+| **−1.0.91** | Compile const-parameter definition with unchanged earlier declaration; compiler command reported, no diagnostics | DONE — learner evidence as described |
+| **−1.0.92** | Run; unchanged rows 3 9 and 4 16 confirmed | DONE — learner evidence as described |
+| **−1.0.93** | Predict const reassignment compilation error; clarify compiler diagnostic versus thrown exception | DONE — learner evidence as described |
+| **−1.0.94** | Add temporary invalid assignment value = 10; learner confirmed saved edit | DONE — learner evidence as described |
+| **−1.0.95** | Compile deliberately invalid source; pasted Clang error at 15:11 and const-declaration note at 14:28; Make Error 1 observed as expected | DONE — learner evidence as described |
+| **−1.0.96** | Remove temporary invalid assignment, preserving const and return; learner confirmed DONE | DONE — learner evidence as described |
+| **−1.0.97** | Rebuild repaired source; compiler command reported, no diagnostics | DONE — learner evidence as described |
+| **−1.0.98** | Run repaired program; rows 3 9 and 4 16 confirmed | DONE — learner evidence as described |
+| **−1.0.99** | Explain successful execution after a failed build can be an older executable and does not verify latest source | DONE — learner evidence as described |
+| **−1.0.100** | Change initial x to -3.0; learner-pasted declaration reviewed after rebuild output | DONE — learner evidence as described |
+| **−1.0.101** | Compile negative-input change; learner had already reported compiler command before declaration review, accepted without redundant rebuild; no diagnostics reported | DONE — learner evidence as described |
+| **−1.0.102** | Run; rows -3 9 and 4 16 explicitly confirmed | DONE — learner evidence as described |
+
 ## Next microstep — only one assigned
 
-### −1.0.90 — Protect the by-value parameter with const
+### −1.0.103 — Check the zero input next
 
-- **Status:** INTRODUCED / PENDING. Learner paused before editing to discuss the DSA curriculum.
-- **One learner action:** add const immediately before double in the parameter of the square definition below main. Leave the earlier declaration unchanged.
-- **Concept:** a top-level const by-value parameter protects the local copy from reassignment; it does not change the caller's argument or the function type.
-- **Check:** learner pastes only the updated definition header; no compilation yet. Do not infer completion from this explanation.
-- **Last verified baseline:** reported output rows 3 9 and 4 16 after the temporary parameter-mutation experiment was removed.
+- **Status:** PLANNED / NOT STARTED. Selected for the next session; not yet taught or completed as a learner action.
+- **One learner action:** change only the initial value in the declaration of x from -3.0 to 0.0. Preserve the later x = 4.0 assignment, both function calls and output statements.
+- **Why:** extend known-value checks to zero after verified positive and negative inputs.
+- **Check for this step:** learner pastes the updated declaration; no compilation or run yet.
+- **Future verification, separate microsteps:** rebuild, then expect rows 0 0 and 4 16. Do not mark these checks done in advance.
+- **Last verified output:** rows -3 9 and 4 16, confirmed in −1.0.102.
 
 ## Current reported build snapshot
 
@@ -136,7 +151,7 @@ mimir: src/main.cpp
 	$(CXX) $(CXXFLAGS) src/main.cpp -o mimir
 ```
 
-The learner reported successful builds using both variables and ordinary make for saved source changes. No diagnostics were reported; separate shell exit-status checks were not requested in these later steps. main initializes x to 3.0, obtains y from square(x), prints the pair, assigns x to 4.0, reassigns y through square(x), and prints the second pair. The declaration above main and definition below main use double value; the function returns value * value. const is not yet added. The existing local project may also contain the separately downloaded documentation from earlier conversations; this has not been inspected.
+The learner reported successful builds using both variables and ordinary make for saved source changes. No diagnostics were reported; separate shell exit-status checks were not requested in these later steps. main initializes x to -3.0, obtains y from square(x), prints the pair, assigns x to 4.0, reassigns y through square(x), and prints the second pair. The declaration above main uses double value; the definition below main now uses const double value and returns value * value. Both temporary assignments of 10 inside square have been removed. Last verified output is -3 9 and 4 16. The existing local project may also contain the separately downloaded documentation from earlier conversations; this has not been inspected.
 
 ## Progress-recording rules
 
@@ -149,3 +164,5 @@ The learner reported successful builds using both variables and ordinary make fo
 ## DSA planning discussion — not a code microstep
 
 Learner requested selective application of Goodrich/Tamassia/Mount, Weiss (4th) and CLRS (4th) to Project −1. Added DSA_CURRICULUM.md and linked the phase applications, design/analysis workflow and evidence rules in the existing documentation. Core, conditional and lab/deferred topics are explicit. No arrays/vectors, search/sort, formal cost/invariant analysis, automated tests or Git have been confirmed. The learner's full repository and project.zip have not been inspected; pasted snippets and output are the evidence.
+## 17 November 2026 handoff
+−1.0.102 is complete. −1.0.103 is planned and not started. The const-parameter experiment was repaired and verified before switching sessions. No source edits, Git initialization or automated tests by the assistant are claimed. Existing DSA scope and six working expectations remain unchanged.

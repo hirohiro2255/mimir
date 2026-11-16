@@ -155,8 +155,8 @@ The complete C++11 engine and essential C++11 curriculum work must be tested and
 - **One microstep at a time.** Future subject lists are not simultaneous implementation assignments.
 - The mathematical scope remains suitable for learning alongside MathAcademy calculus.
 
-## Current checkpoint — 16 November 2026
+## Current checkpoint — 17 November 2026
 
-**Last confirmed step:** −1.0.89. **Next unfinished step:** −1.0.90, introduced but not completed. The learner verified restored output `3 9` and `4 16`; adding `const` to the function definition's by-value parameter is pending.
+**Last confirmed step:** −1.0.102. **Next unfinished step:** −1.0.103 — change only the initial value of x from -3.0 to 0.0. The learner confirmed output `-3 9` and `4 16`; square's definition now takes a const double parameter. The next edit is planned and has not been performed.
 
 This is a documentation update only; no learner source, Makefile, tests or Git state was modified.

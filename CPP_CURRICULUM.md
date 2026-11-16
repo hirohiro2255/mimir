@@ -53,7 +53,7 @@ The following tracks are **thematic**, not fixed chronological weeks. Overlap is
 
 **Evidence:** explain compile versus link; independently diagnose a missing definition; build two source files using a tiny Makefile; demonstrate a change that does and does not trigger rebuild.
 
-**Progress:** introduced and practiced through −1.0.89: compilation, timestamp rebuilds, Make variables, scalar calculations, functions and pass-by-value experiments. C01 is not complete. Next unfinished microstep is −1.0.90; see MILESTONES.md.
+**Progress:** introduced and practiced through −1.0.102: compilation, timestamp rebuilds, Make variables, scalar calculations, functions, pass-by-value, const-parameter diagnostics and recovery, and a negative-input check. C01 is not complete. Next unfinished microstep is −1.0.103; see MILESTONES.md.
 
 ### C02 — Fundamental types, objects, values and conversions
 
@@ -269,10 +269,11 @@ A track status starts as **not assessed** unless the learner has actually demons
 
 | Track | Current evidence | Level / status |
 | --- | --- | --- |
-| C01 — Toolchain/build | Confirmed builds and runs through −1.0.89; CXX/CXXFLAGS expansion, incremental builds and function declaration/definition/calls | **1–2 for introductory subtopics only**, not assessed for full track |
+| C01 — Toolchain/build | Confirmed builds and runs through −1.0.102; Make variables, incremental builds, functions, deliberate const diagnostic/recovery and stale-executable reasoning | **1–2 for introductory subtopics only**, not assessed for full track |
 | C02 — Types | Used double literals and variables; explained stored initialization versus reassignment after correcting an initial misconception | Introductory evidence only; full track not assessed |
 | C13 — I/O | Printed scalar results, newline/space characters and two input/result rows | Introductory evidence only; full track not assessed |
 | C04 — Functions | Learner wrote square, used declaration/definition/calls/return, explained argument versus parameter and tested by-value independence | Introductory application and reasoning; not full-track mastery |
+| C02/C04/C15 — const and diagnostics | Corrected const placement from return type to parameter; predicted and observed reassignment rejection, interpreted the diagnostic and restored a working build; negative input -3 produced 9 | Focused evidence only; no full-track mastery claim |
 | D01–D08 — DSA | Plan added; no containers, search/sort, formal invariants or complexity analysis demonstrated yet | Planned; not assessed |
 | Remaining C++ subtopics/tracks | No additional mastery claim | Not assessed |
 | M14, M17, M20, M23 | Not started; C++11 engine first | Not started |
@@ -296,6 +297,6 @@ When revising this document, record:
 - No arbitrary deadline, fixed number of steps, or unearned certification of mastery.
 - Not every possible C++ specification detail will become a full standalone engine feature; genuinely relevant depth is demonstrated through *appropriate experiments and explanations*.
 
-**Last confirmed step:** −1.0.89. **Next unfinished step:** −1.0.90, introduced but not completed. The learner verified restored output `3 9` and `4 16`; adding `const` to the function definition's by-value parameter is pending.
+**Last confirmed step:** −1.0.102. **Next unfinished step:** −1.0.103 — change only the initial value of x from -3.0 to 0.0. The learner confirmed output `-3 9` and `4 16`; square's definition now takes a const double parameter. The next edit is planned and has not been performed.
 
-The DSA planning update does not introduce an additional coding assignment. Resume the pending microstep only.
+The DSA plan remains unchanged. Resume the single next microstep from the handoff.

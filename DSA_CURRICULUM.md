@@ -2,7 +2,7 @@
 **Version:** 1.1 — 16 November 2026
 **Scope:** Project −1; C++11 first; additions to the existing twelve mathematical phases.
 **Status:** Approved planning direction from the learner's request. No new DSA implementation is claimed.
-**Checkpoint:** −1.0.89 confirmed complete; −1.0.90 pending. This planning discussion does not advance code.
+**Checkpoint updated 17 November 2026:** −1.0.102 confirmed complete; −1.0.103 planned, not started. DSA scope and working expectations are unchanged.
 
 ## Purpose and teaching agreement
 Choosing representations and algorithms is an explicit learning objective alongside C++ semantics and numerical mathematics. Existing C11/C12/C14/C18/C19 tracks already contain related material, but need a coherent application and verification plan.
@@ -122,7 +122,7 @@ For a nontrivial algorithm or representation, eventually demonstrate:
 Do these through separate microsteps. No one-turn bundled assignment is implied.
 
 ## Current evidence and next action
-- Scalar input/output, square function calls, copies, initialization versus reassignment: learner demonstrated these through −1.0.89.
+- Scalar input/output, square function calls, copies, initialization versus reassignment: learner demonstrated these through −1.0.102, including const-parameter diagnostics/recovery and a negative-input check.
 - No arrays/vectors, container implementations, loop invariants, complexity derivations, search/sort implementations, Git initialization or automated tests are confirmed.
 - D01–D08 are planned, not assessed as mastered. The square function alone is not proof of algorithm-analysis proficiency.
-- Resume **−1.0.90 only**: add const to the by-value parameter in the definition of square below main; keep its earlier declaration unchanged; review the header before compilation. This step has been introduced but not completed.
+- Resume **−1.0.103 only**: change only the initial value of x from -3.0 to 0.0, preserving the later assignment of 4.0. Review the declaration before any compilation. This is a planned next step, not a completed or previously assigned edit.

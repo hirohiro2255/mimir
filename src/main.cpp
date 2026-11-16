@@ -3,7 +3,7 @@
 double square(double value);
 
 int main() {
-  double x = 3.0;
+  double x = 0.0;
   double y = square(x);
   std::cout << x << ' ' << y << '\n';
   x = 4.0;
@@ -11,6 +11,6 @@ int main() {
   std::cout << x << ' ' << y << '\n';
 }
 
-double square(double value) {
+double square(const double value) {
     return value * value;
 }

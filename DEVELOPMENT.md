@@ -87,7 +87,7 @@ Some topics—advanced template techniques, deep inheritance, low-level memory, 
 - Do not add entire features, directories or test infrastructure ahead of their teaching step.
 - Preserve mathematical boundaries: no tensors, automatic differentiation, neural network, language model, GPU or CFD inside Mímir.
 - Record **confirmed** progress in [MILESTONES.md](MILESTONES.md).
-- Current checkpoint (16 November 2026): **−1.0.89 confirmed complete**; **−1.0.90 pending**. The two-row square-function baseline is restored and verified. Refer to [MILESTONES.md](MILESTONES.md) and [SESSION_HANDOFF.md](SESSION_HANDOFF.md).
+- Current checkpoint (17 November 2026): **−1.0.102 confirmed complete**; **−1.0.103 next, not started**. The const-parameter square function is verified with rows -3 9 and 4 16. Refer to [MILESTONES.md](MILESTONES.md) and [SESSION_HANDOFF.md](SESSION_HANDOFF.md).
 - When documentation changes, distinguish *planning* from *implemented/tested* functionality.
 
 ## Conversation handoff and durable context
@@ -120,10 +120,10 @@ Newer syntax is **not automatically** better. Keep version-specific labs separat
 
 Use [DSA_CURRICULUM.md](DSA_CURRICULUM.md) alongside the existing C++ curriculum. Before a nontrivial representation/algorithm change, establish the actual operations/workload, input/output contract, invariants, time/space costs, ownership/invalidation implications, numerical limitations and a simpler alternative. Develop this evidence across separate tiny steps.
 
-The engine uses appropriate standard-library containers and algorithms. Selected handwritten implementations belong in focused learner-authored labs unless a real engine need warrants otherwise. Benchmark only meaningful workloads, separately from console I/O, preserving numerical correctness. Advanced book topics are not mandatory engine features or new prerequisites for finishing every modernization stage. This planning agreement does not claim implemented DSA work or advance −1.0.90.
+The engine uses appropriate standard-library containers and algorithms. Selected handwritten implementations belong in focused learner-authored labs unless a real engine need warrants otherwise. Benchmark only meaningful workloads, separately from console I/O, preserving numerical correctness. Advanced book topics are not mandatory engine features or new prerequisites for finishing every modernization stage. This agreement was adopted while −1.0.90 was pending; it made no code-progress claim. See the current checkpoint above for subsequent verified work.
 
 ### Working expectations and decision records
 
 The learner asked to preserve the follow-up discussion for future reference. [DSA_CURRICULUM.md — Working expectations and future discussions](DSA_CURRICULUM.md#working-expectations-and-future-discussions) records the standing distinctions between language mastery, algorithmic understanding, analysis and application; workload-specific efficiency; learner-written labs and standard-library selection; numerical correctness/error/convergence/cost; selective DSA-book scope; and just-in-time refinement of a stable plan.
 
-When a meaningful decision changes, record its problem, chosen approach, assumptions/rationale, alternatives, evidence/uncertainty and scope consequences in the affected document. Mark proposed, adopted and implemented work distinctly. Preserve the exact confirmed checkpoint when discussion does not advance code. Current checkpoint remains −1.0.89 complete, −1.0.90 pending.
+When a meaningful decision changes, record its problem, chosen approach, assumptions/rationale, alternatives, evidence/uncertainty and scope consequences in the affected document. Mark proposed, adopted and implemented work distinctly. Preserve the exact confirmed checkpoint when discussion does not advance code. Current checkpoint: −1.0.102 complete; −1.0.103 planned, not started.
