@@ -87,4 +87,4 @@ The learner reported successful C++11 compilation with these flags and `make -B`
 3. Keep steps extremely small; do not generate full functions, Makefiles or implementations.
 4. Preserve the C++11 standard-library-only engine; modernize only after the completed baseline.
 5. When Git is introduced, commit verified work; no Git initialization or commits are claimed yet.
-6. Before a fresh conversation, update this file and [SESSION_HANDOFF.md](SESSION_HANDOFF.md) consistently.
+6. **Before every fresh conversation, the assistant must update and offer downloadable copies of this file and [SESSION_HANDOFF.md](SESSION_HANDOFF.md)** using verified progress from the just-finished session. Make sure last-completed and next-unfinished step identifiers agree; see [SESSION_HANDOFF.md, Section 6](SESSION_HANDOFF.md) for the standing handoff procedure.

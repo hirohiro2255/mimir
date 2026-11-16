@@ -71,7 +71,22 @@ Read these files when supplied, in this order:
 
 If a general long-term statement seems at odds with recent **learner-confirmed progress**, ask for evidence rather than overwrite the checkpoint from memory. The milestone numbering for this project intentionally begins `−1.0.0`.
 
-## 6. Instructions for starting a new conversation
+## 6. Standing protocol — update both files before every session switch
+
+**This is a recurring instruction for the assistant in every future Mímir conversation, not a one-time request.** When the learner says they are ending a session, asks for a handoff, or requests a fresh conversation:
+
+1. Read the **current** `MILESTONES.md`, this `SESSION_HANDOFF.md`, and any newly learner-confirmed progress from the conversation.
+2. Update **`MILESTONES.md`** with the exact microsteps completed and their verification results. Label introduced/in-progress/blocked steps honestly; never infer `DONE` from a step merely being explained.
+3. Update **`SESSION_HANDOFF.md`** with the last confirmed step, **one exact next unfinished step**, relevant code/Makefile state (clearly marked *learner-reported* or *actually inspected*), pending conceptual questions, decisions, and anything needed for a smooth restart.
+4. Confirm that the two files agree with each other and with any checkpoint shown in `README.md`, `DEVELOPMENT.md`, `ROADMAP.md`, or `CPP_CURRICULUM.md`; update those documents **only when needed** to avoid contradictory current-state claims. Do not rewrite unchanged policy documents or alter `AGENTS.md`.
+5. Create **downloadable updated Markdown files and a ZIP** for the learner to save with their local project. Do not claim to have edited the learner's Mac files without actually accessing them.
+6. Give the learner a short **copy-paste opening message** for the next conversation, referring to the newly delivered files and the exact next step.
+
+**At the start of each fresh session:** read the attached documents before proceeding, check for contradictions, and resume at the single next unfinished microstep. Do not skip ahead.
+
+**Current snapshot remains unchanged:** −1.0.32 is confirmed complete; −1.0.33 was explained but has not been confirmed complete.
+
+## 7. Instructions for starting a new conversation
 
 1. Place or retain these `.md` files in your existing `mimir/` project directory; they are documentation **only** and should not overwrite `src/main.cpp`, `Makefile`, `tests/`, your executable or `mimir.dSYM`.
 2. Start a fresh ChatGPT conversation (you can keep it inside your existing C++ Projects workspace/project if useful) and attach the updated Markdown documents or their ZIP.
@@ -79,9 +94,9 @@ If a general long-term statement seems at odds with recent **learner-confirmed p
 
 > We are continuing **Mímir**, my C++11-first, very incremental C++ mastery and numerical computing project. I attached our documentation. Read `AGENTS.md`, `SESSION_HANDOFF.md`, and `MILESTONES.md` first, and follow the other files for the established decisions. I write all implementation code. Please resume at **Step −1.0.33** only, with one extremely small teaching action and a clear verification. Do not generate full files or skip milestones.
 
-4. Once the learner completes −1.0.33, record `DONE` before moving to −1.0.34. Refresh `MILESTONES.md` and this handoff file at the next significant session boundary.
+4. Once the learner completes −1.0.33, record `DONE` before moving to −1.0.34. **Before the next session switch, follow the standing protocol in Section 6 and deliver refreshed downloadable copies of both `MILESTONES.md` and `SESSION_HANDOFF.md`.**
 
-## 7. What not to do on resume
+## 8. What not to do on resume
 
 - Do **not** resume at −1.0.13; that's an obsolete checkpoint in older Markdown files.
 - Do **not** mark −1.0.33 done just because the preceding assistant *described* it.
