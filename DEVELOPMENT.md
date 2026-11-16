@@ -8,7 +8,7 @@ Preserve our **six original decisions** while adding the more ambitious C++ mast
 
 - **macOS**; **Apple Clang 21.0.0**; **GNU Make 3.81**.
 - **C++11 initially**, using `-std=c++11`. Later compiler modes are introduced sequentially and only when scheduled.
-- Initial suggested warnings/debugging options: `-Wall -Wextra -Wpedantic -g -O0` (we will introduce and understand flags gradually).
+- Current learner-reported build options: `-Wall -Wextra -Wpedantic -g -O0`, successfully built with `make -B` on C++11. Introduced one option at a time; later changes remain similarly incremental.
 - Grow a **minimal Makefile** one rule/setting at a time. No CMake requirement.
 - Debuggers, sanitizers, profilers and feature probes are later *developer tools*, not added runtime libraries.
 
@@ -87,8 +87,16 @@ Some topics—advanced template techniques, deep inheritance, low-level memory, 
 - Do not add entire features, directories or test infrastructure ahead of their teaching step.
 - Preserve mathematical boundaries: no tensors, automatic differentiation, neural network, language model, GPU or CFD inside Mímir.
 - Record **confirmed** progress in [MILESTONES.md](MILESTONES.md).
-- Current checkpoint (16 November 2026): **−1.0.12 completed**; **−1.0.13 next**. The current `Makefile` only has `mimir:`.
+- Current checkpoint (16 November 2026): **−1.0.32 confirmed complete**; **−1.0.33 next**. The learner added `CXX = clang++`, but the recipe still invokes `clang++` literally. Refer to [MILESTONES.md](MILESTONES.md) and [SESSION_HANDOFF.md](SESSION_HANDOFF.md).
 - When documentation changes, distinguish *planning* from *implemented/tested* functionality.
+
+## Conversation handoff and durable context
+
+- Start a fresh conversation when useful (for example, after a meaningful milestone or a long sequence of microsteps). There is no mandatory number of turns.
+- Before changing conversations, record **only learner-confirmed progress** in [MILESTONES.md](MILESTONES.md), and update [SESSION_HANDOFF.md](SESSION_HANDOFF.md) with the exact next unfinished step, relevant current file state, key results and any outstanding questions.
+- Make the Markdown documents and, once available, the learner's Git repository the source of truth. Chat history and memory can help, but they are not a substitute for an accurate checkpoint.
+- At the start of a new chat, provide the documentation package or at least the files it references, ask the assistant to read them, and resume at the **single next unfinished microstep**. Do not replay completed steps or generate whole implementations.
+- The assistant must not claim to have inspected or edited the learner's local source files merely because the learner described them.
 
 ## Modernization after the completed C++11 baseline
 

@@ -52,20 +52,25 @@ For comprehensive C++ study, unrelated subjects such as advanced inheritance, cu
 | [DEVELOPMENT.md](DEVELOPMENT.md) | Six decisions, incremental development and modernization |
 | [CODING_STANDARDS.md](CODING_STANDARDS.md) | Naming, safety, design and readability |
 | [TESTING.md](TESTING.md) | Numerical, software and C++-concept verification |
-| [MILESTONES.md](MILESTONES.md) | Confirmed setup progress and the next microstep |
+| [MILESTONES.md](MILESTONES.md) | Progress through the last learner-confirmed microstep |
+| [SESSION_HANDOFF.md](SESSION_HANDOFF.md) | Current session checkpoint, precise next action and fresh-chat instructions |
 
-## Confirmed current state — 16 November 2026
+## Current state — 16 November 2026
+
+**User-reported progress:** Phase 0, Steps **−1.0.0 through −1.0.32** have been covered; **−1.0.32 is explicitly confirmed DONE**. Our precise **next uncompleted step is −1.0.33** (use the existing `CXX` variable in the compilation recipe). The assistant has not inspected the learner’s local files; see [MILESTONES.md](MILESTONES.md) for the step history and verification caveats.
 
 ```text
 mimir/
-├── Makefile              # currently contains "mimir:" only
+├── Makefile              # includes CXX definition, target, dependency and recipe
 ├── src/
-│   └── main.cpp          # displays "Hello, Mimir!"
-└── tests/                # empty
+│   └── main.cpp          # prints "Hello, Mimir!"
+├── tests/                # no test source confirmed yet
+└── mimir                 # locally compiled executable; may also have mimir.dSYM
 ```
 
-**Completed:** Phase 0 microstep **−1.0.12** (first Make target). **Next:** **−1.0.13** (first Make recipe). Do not replace the learner's existing code or Makefile with documentation files. See [MILESTONES.md](MILESTONES.md).
+Current **reported Makefile state**: `CXX = clang++` above `mimir: src/main.cpp`; recipe still invokes `clang++` directly with `-std=c++11 -Wall -Wextra -Wpedantic -g -O0`. This build was successfully tested via `make -B`. **Do not assume** `$(CXX)` is already used: that is the next tiny learner action.
 
+To transfer to another chat, read [SESSION_HANDOFF.md](SESSION_HANDOFF.md) and attach the documentation files. **This documentation package does not modify or replace the learner's `Makefile`, C++ source, executable or tests.**
 ## References
 
 - [Programming: Principles and Practice Using C++, 3rd ed.](https://www.stroustrup.com/programming.html)

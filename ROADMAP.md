@@ -137,4 +137,4 @@ The complete C++11 engine and essential C++11 curriculum work must be tested and
 
 ## Current checkpoint — 16 November 2026
 
-The learner confirmed completion through **Step −1.0.12** (created the Makefile target `mimir:` without a recipe). **Next: Step −1.0.13**, adding the first recipe under guidance. No source, Makefile or tests are modified by this roadmap update.
+The learner has progressed through **Step −1.0.32**, explicitly confirming creation of `CXX = clang++` as a Makefile variable. The project already has a compilation recipe and `src/main.cpp` prerequisite. **Next unfinished: Step −1.0.33**, replacing the recipe's literal `clang++` with `$(CXX)` while leaving all flags and other lines unchanged. See [MILESTONES.md](MILESTONES.md) and [SESSION_HANDOFF.md](SESSION_HANDOFF.md) for the live checkpoint. This documentation update does **not** modify the learner's local source or Makefile.

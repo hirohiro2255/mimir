@@ -1,4 +1,4 @@
-# Mímir — Comprehensive C++ Mastery Curriculum v1.0
+# Mímir — Comprehensive C++ Mastery Curriculum v1.1
 
 ## Purpose
 
@@ -53,7 +53,7 @@ The following tracks are **thematic**, not fixed chronological weeks. Overlap is
 
 **Evidence:** explain compile versus link; independently diagnose a missing definition; build two source files using a tiny Makefile; demonstrate a change that does and does not trigger rebuild.
 
-**Progress:** **introduced**: first C++ program compiled, executed and output checked; `Makefile` exists with `mimir:` target. **Next microstep is −1.0.13**, *not* completion of this track.
+**Progress (16 November 2026):** **introduced and practiced**: first C++11 program compiled, executed and output checked; Make targets, TAB-indented recipes, source prerequisites, timestamp-based rebuilding, forced rebuilds with `make -B`, warnings, `-g`, `-O0`, and variable definition `CXX = clang++`. **Next microstep is −1.0.33**, referencing that variable in the recipe. This is not completion of the C01 track.
 
 ### C02 — Fundamental types, objects, values and conversions
 
@@ -261,7 +261,7 @@ A track status starts as **not assessed** unless the learner has actually demons
 
 | Track | Current evidence | Level / status |
 | --- | --- | --- |
-| C01 — Toolchain/build | Confirmed: compiled C++11 `main`, ran it, observed exit status and output, created initial Make target through −1.0.12 | **1–2 for introductory subtopics only**, not assessed for full track |
+| C01 — Toolchain/build | Learner-reported: compiled C++11 `main`, ran it, observed exit status/output, practiced Make targets/prerequisites/recipes, timestamp behavior, `make -B`, warning/debug/optimization flags and `CXX` variable definition through −1.0.32 | **1–2 for introductory subtopics only**, not assessed for full track |
 | C02 — Types | Encountered `int main()`, but no depth assessment recorded | Not assessed |
 | C13 — I/O | Used `std::cout` for a hello message, but no depth assessment recorded | Not assessed |
 | C03–C12, C14–C20 | No mastery evidence documented yet | Not assessed |
@@ -286,4 +286,4 @@ When revising this document, record:
 - No arbitrary deadline, fixed number of steps, or unearned certification of mastery.
 - Not every possible C++ specification detail will become a full standalone engine feature; genuinely relevant depth is demonstrated through *appropriate experiments and explanations*.
 
-**Immediate next action remains microstep −1.0.13**, a first Make recipe, under the original tiny-step teaching policy. Do not jump to concurrency, templates or C++23 simply because this curriculum mentions them.
+**Immediate next action is microstep −1.0.33**, substituting `$(CXX)` for the literal compiler command in the existing recipe. This does not imply C01 mastery; do not jump to concurrency, templates or C++23 simply because this curriculum mentions them.

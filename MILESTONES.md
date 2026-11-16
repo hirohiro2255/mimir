@@ -1,45 +1,90 @@
 # Mímir — Milestones and Current Progress
 
-**Status date:** 16 November 2026. **Project:** −1. **Current phase:** 0 — Mathematical Function Explorer. **Language:** C++11.
+**Checkpoint date:** 16 November 2026  
+**Project:** −1 — C++ mastery through numerical computing  
+**Phase:** 0 — Mathematical Function Explorer  
+**Last explicitly confirmed step:** **−1.0.32**  
+**Next uncompleted step:** **−1.0.33**
 
-This file records **user-confirmed** microstep completion; it is not a claim that the assistant inspected local code. Only the **next** microstep is assigned. Detailed future steps will be designed gradually, never in huge batches.
+This register is reconstructed from the learner's reports in the conversation. It is **not an independent inspection** of the Mac's `mimir/` directory. Do not infer unreported Git commits, test runs or file contents. Two steps were covered without a separately recorded command result; this does **not** block proceeding to the agreed next step.
 
-## Phase 0 — Verified through learner reports
+## Phase 0 — Microstep history
 
-| Microstep | Tiny objective | Status |
+| Microstep | Objective / observation | Reported status |
 | --- | --- | --- |
-| **−1.0.0** | Create `mimir/` project directory | ✅ Learner reported done |
-| **−1.0.1** | Create `src/` directory | ✅ Learner reported done |
-| **−1.0.2** | Create `tests/` directory | ✅ Learner reported done |
-| **−1.0.3** | Create empty `src/main.cpp` | ✅ Learner reported done |
-| **−1.0.4** | Write minimal C++11 `main()` | ✅ Learner reported done |
-| **−1.0.5** | Compile with `clang++ -std=c++11` | ✅ Learner reported done |
-| **−1.0.6** | Run executable and inspect exit status `0` | ✅ Learner reported done |
-| **−1.0.7** | Add the standard `<iostream>` header | ✅ Learner reported done |
-| **−1.0.8** | Add `std::cout` greeting to `main()` | ✅ Learner reported done |
-| **−1.0.9** | Recompile modified executable | ✅ Learner reported done |
-| **−1.0.10** | Execute and check `Hello, Mimir!` | ✅ Learner reported done |
-| **−1.0.11** | Create empty `Makefile` | ✅ Learner reported done |
-| **−1.0.12** | Add first Make target line `mimir:` | ✅ Learner reported done |
+| **−1.0.0** | Create `mimir/` project directory | DONE — learner confirmed |
+| **−1.0.1** | Create `src/` directory | DONE — learner confirmed |
+| **−1.0.2** | Create `tests/` directory | DONE — learner confirmed |
+| **−1.0.3** | Create empty `src/main.cpp` | DONE — learner confirmed |
+| **−1.0.4** | Write minimal C++11 `main()` | DONE — learner confirmed |
+| **−1.0.5** | Compile using `clang++ -std=c++11` | DONE — learner confirmed |
+| **−1.0.6** | Run executable; verify exit status `0` | DONE — learner confirmed |
+| **−1.0.7** | Add `<iostream>` | DONE — learner confirmed |
+| **−1.0.8** | Add `std::cout` greeting | DONE — learner confirmed |
+| **−1.0.9** | Recompile modified C++ source | DONE — learner confirmed |
+| **−1.0.10** | Run; observe `Hello, Mimir!` | DONE — learner confirmed |
+| **−1.0.11** | Create empty `Makefile` | DONE — learner confirmed |
+| **−1.0.12** | Add target `mimir:` | DONE — learner confirmed |
+| **−1.0.13** | Add TAB-indented `clang++` compilation recipe | DONE — learner confirmed |
+| **−1.0.14** | Run `make` with no prerequisite; observe up-to-date | DONE — learner confirmed |
+| **−1.0.15** | Add `src/main.cpp` prerequisite to `mimir` | DONE — learner confirmed |
+| **−1.0.16** | Run `make` again; observe up-to-date | DONE — learner confirmed |
+| **−1.0.17** | Update source timestamp with `touch` | DONE — learner confirmed |
+| **−1.0.18** | Run `make`; observe automatic compilation | DONE — learner confirmed |
+| **−1.0.19** | Run `make` after rebuild; discuss timestamp costs | COVERED — direct `make` result not separately stated |
+| **−1.0.20** | Add compiler warning option `-Wall` | DONE — learner confirmed |
+| **−1.0.21** | Run `make` after recipe flag change; observe up-to-date | DONE — learner confirmed |
+| **−1.0.22** | Introduce forced rebuild with `make -B` | COVERED — forced-build result not explicitly recorded at this step |
+| **−1.0.23** | Run ordinary `make` after forced build; observe up-to-date | DONE — learner confirmed |
+| **−1.0.24** | Add `-Wextra` | DONE — learner confirmed |
+| **−1.0.25** | Compile with `make -B`; confirm no warnings | DONE — learner confirmed |
+| **−1.0.26** | Add `-Wpedantic` | DONE — learner confirmed |
+| **−1.0.27** | Compile using `-Wpedantic`; discuss portability | DONE — learner confirmed |
+| **−1.0.28** | Add debug information flag `-g` | DONE — learner confirmed |
+| **−1.0.29** | Compile with `-g`; observe `mimir.dSYM` | DONE — learner confirmed |
+| **−1.0.30** | Add optimization flag `-O0` | DONE — learner confirmed |
+| **−1.0.31** | Compile complete C++11 development configuration | DONE — learner confirmed |
+| **−1.0.32** | Define `CXX = clang++` above Make target | DONE — learner confirmed |
 
-## The single next microstep
+## Next microstep — only one assigned
 
-**−1.0.13 — Introduce the first Make recipe.**
+### −1.0.33 — Reference the `CXX` Make variable in the recipe
 
-- This step is **not yet started**.
-- As agreed, the assistant should teach one tiny addition to the existing Makefile, explain the role of the **recipe**, and stop for the learner to try it.
-- Do not generate a complete Makefile, source file or tests.
-- Teaching note: because the `mimir` executable already exists, a target with no prerequisites may be considered up-to-date; the later lesson should explicitly teach how prerequisites affect rebuilding, rather than treating the lack of execution as a mysterious failure.
+- **Status:** **NOT YET CONFIRMED / NOT STARTED**. The previous conversation *introduced* the step, but the learner asked to prepare documentation instead of reporting `DONE`.
+- **Present reported state:** `CXX = clang++` is already defined above the Make target. The recipe still starts with the literal `clang++`.
+- **One tiny learner action:** replace **only** the literal command `clang++` at the beginning of the recipe with `$(CXX)`; leave the C++11 flags, prerequisite and everything else unchanged. Do not compile yet; next step will test expansion.
+- **Concept:** Make variable references and expansion; `$(CXX)` expands to the assigned value `clang++`.
+- **Check:** learner confirms the line was changed and saved. Ask what compiler Make would invoke if `CXX = g++` (answer: `g++`, when the recipe runs).
+- **Assistant's role:** explain, guide, and wait for confirmation before introducing −1.0.34. No whole-file code generation.
 
-## Documentation milestone
+## Current reported build snapshot
 
-The educational scope was expanded from the original calculus-only focus to a **dual-track mathematical engine + deep C++ curriculum**, benchmarked against three Stroustrup books. See `ROADMAP.md` and `CPP_CURRICULUM.md`. **Documentation changes do not advance the coding microstep number.**
+```text
+mimir/
+├── Makefile           # CXX definition + target, prerequisite, recipe
+├── src/
+│   └── main.cpp       # hello greeting using std::cout
+├── tests/             # created; no test file confirmed
+├── mimir              # compiled executable
+└── mimir.dSYM/        # observed after compiling with -g on macOS
+```
 
-## Progress recording rules
+Current Makefile contents as **reconstructed from learner-confirmed changes**, not retrieved from the learner's filesystem:
 
-1. Only mark a step complete after the learner reports success or provides checkable evidence.
-2. If the learner encounters an error, work on **that same** microstep rather than moving ahead.
-3. Record a small check, expected result or Git reference *when available*. Don't invent tests, tags or commits.
-4. Prefer one microstep per interaction, however tiny; subdivide whenever the learner wants.
-5. Do not mark C++ mastery topics completed solely because their syntax appears in the program.
-6. At an appropriate future step, initialize Git and begin committing completed microsteps; no such step is claimed yet.
+```makefile
+CXX = clang++
+
+mimir: src/main.cpp
+	clang++ -std=c++11 -Wall -Wextra -Wpedantic -g -O0 src/main.cpp -o mimir
+```
+
+The learner reported successful C++11 compilation with these flags and `make -B`. The `Makefile` variable is defined but **not yet used**. The existing local project may also contain the separately downloaded documentation from earlier conversations; this has not been inspected.
+
+## Progress-recording rules
+
+1. Only advance when the learner reports the required check or provides evidence; distinguish user reports from direct inspection.
+2. If a microstep is incomplete or errors occur, remain on it and discuss the problem.
+3. Keep steps extremely small; do not generate full functions, Makefiles or implementations.
+4. Preserve the C++11 standard-library-only engine; modernize only after the completed baseline.
+5. When Git is introduced, commit verified work; no Git initialization or commits are claimed yet.
+6. Before a fresh conversation, update this file and [SESSION_HANDOFF.md](SESSION_HANDOFF.md) consistently.
