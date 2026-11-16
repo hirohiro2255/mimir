@@ -1,110 +1,140 @@
-# Mímir — Overall Roadmap v1.0
+# Mímir — Overall Roadmap v2.0
 
-**Project −1: Calculus & Numerical Optimization Engine**
+**Project −1: C++ Mastery Through a Calculus & Numerical Optimization Engine**
 
-## Purpose and boundaries
+## What changed from v1.0?
 
-Mímir is a dependency-free, educational **C++ numerical computing engine**, built in tiny, verified increments while studying AP Calculus BC and continuing into selected introductory numerical-analysis topics. It is the mathematical and programming foundation for the later Projects 0–9, culminating in a small GPT-like language model.
+The original **12 mathematical phases (0–11) remain intact**. A comprehensive **C++ mastery curriculum** now runs alongside and beyond them, taking the combined breadth of three Stroustrup books as a benchmark. C++ topics not useful in the engine are learned through very small *companion labs*, not forced into production code.
 
-This is an **overall phase roadmap**, not a fixed implementation plan or a list of hundreds of TODOs. Detailed Phase 0 milestones will be designed separately in `MILESTONES.md` before coding. A phase is complete only when its capabilities work and its mathematical behavior has been checked.
+This is a direction-setting roadmap, **not a demand to implement every item now**. The learner writes implementations according to [AGENTS.md](AGENTS.md), taking one tiny step at a time. Use [CPP_CURRICULUM.md](CPP_CURRICULUM.md) for subject coverage and [MILESTONES.md](MILESTONES.md) for actual progress.
 
-**Constraints:** C++11 first, C++ standard library only, Apple Clang 21, GNU Make 3.81, macOS; start with a tiny CLI. The learner writes code; AI helps teach, review and debug according to `AGENTS.md`. See `DEVELOPMENT.md`, `CODING_STANDARDS.md`, and `TESTING.md`.
+## Two parallel paths
 
-## Part A — Build the full C++11 engine
+| Path | Goal | Evidence |
+| --- | --- | --- |
+| **Mathematical engine** | Understand calculus and numerical algorithms by developing a real CLI | Working behavior, numerical validation, tests, reproducible experiments |
+| **C++ mastery** | Deepen understanding of C++ semantics, design, the standard library and tooling | Learner-written exercises, code explanations, debugging and reasoned verification |
+
+The C++ curriculum is **not divided evenly** among the mathematical phases. Some topics occur early, some are revisited across phases, and newer-standard facilities belong to the modernization journey. Mathematical progress and C++ progress can move at different speeds.
+
+## Part A — Complete the C++11 engine (12 original phases)
 
 ### Phase 0 — Mathematical Function Explorer
-- **Concepts:** mathematical functions, domains, input/output, tables, coordinate axes.
-- **Build toward:** evaluate a few explicitly supported functions; print value tables; visualize simple graphs in terminal text.
-- **Completion check:** selected functions produce correct known values; tabular and graph output are consistent with computed samples; invalid inputs are handled clearly.
-- **Boundary:** no general-purpose expression parser or graphical user interface required.
+- **Math:** function domains/ranges, input/output, sampling, tables and coordinate axes.
+- **Engine:** evaluate selected explicit functions, print value tables and simple ASCII graphs.
+- **Completion:** verify known values, output consistency and invalid-input handling.
+- **C++ opportunities:** program entry, compilation/linking, Make, output/input, fundamental types, expressions, loops, functions, headers and first tests.
+- **Boundary:** no general expression parser or GUI.
 
 ### Phase 1 — Limits and Numerical Precision
-- **Concepts:** one-sided approaches, limits, continuity, finite floating-point precision.
-- **Build toward:** sample a function as input approaches a target from either side; compare values at multiple step sizes.
-- **Completion check:** experiments illustrate both a well-behaved limit and a misleading numerical case; non-finite results are not silently accepted.
-- **Boundary:** numerical sampling is evidence, not a mathematical proof of a limit.
+- **Math:** limits, one-sided approaches, continuity and finite precision.
+- **Engine:** sample functions approaching a chosen value with adjustable steps.
+- **Completion:** demonstrate a valid example and a misleading finite-precision case; handle non-finite values.
+- **C++ opportunities:** `double`, conversions, `const`, `std::numeric_limits`, stream formatting and preconditions.
+- **Boundary:** numerical sampling does not prove a limit.
 
 ### Phase 2 — Numerical Differentiation
-- **Concepts:** derivative as local rate of change; forward, backward and central finite differences.
-- **Build toward:** numerical derivative approximations using controlled step size.
-- **Completion check:** compare against simple exact derivatives at known points and observe how error changes with step size.
+- **Math:** derivative and forward, backward and central finite differences.
+- **Engine:** approximate derivatives with adjustable step sizes.
+- **Completion:** compare against known analytical results; investigate error versus step size.
+- **C++ opportunities:** functions, interfaces, parameter passing and focused tests.
 
 ### Phase 3 — Derivative Verification
-- **Concepts:** symbolic/analytical derivatives, chain rule, error measurement.
-- **Build toward:** compare known analytical derivatives with finite-difference estimates.
-- **Completion check:** correctly report numerical discrepancy over representative points and explain why exact equality is not expected.
-- **Boundary:** no symbolic differentiation system required.
+- **Math:** analytical differentiation, chain rule and error metrics.
+- **Engine:** compare supplied exact derivatives with numerical approximations.
+- **Completion:** correct error reports over representative points; explain numerical discrepancies.
+- **C++ opportunities:** lambdas, function objects, modularity, helper tests and clear failure reporting.
+- **Boundary:** no symbolic differentiation engine required.
 
 ### Phase 4 — Root-Finding Engine
-- **Concepts:** zeros of functions, bracketing, Newton iteration, convergence and failure.
-- **Build toward:** bisection and Newton's method for one-variable functions.
-- **Completion check:** converge for suitable test problems; report failed brackets, small derivatives, iteration limits, or non-convergence explicitly.
+- **Math:** zeros, bracketing, bisection, Newton's method, convergence and failure.
+- **Engine:** scalar bisection and Newton solvers.
+- **Completion:** solve valid problems and explicitly report invalid brackets, near-zero derivatives and iteration limits.
+- **C++ opportunities:** result types, invariants, error handling and elementary user-defined types.
 
 ### Phase 5 — One-Dimensional Optimization
-- **Concepts:** minima, derivative-based descent, learning rate, stopping conditions.
-- **Build toward:** basic gradient descent on one-variable test functions.
-- **Completion check:** show reproducible optimization traces on suitable objectives and recognize divergence or non-convergence.
+- **Math:** minima, derivatives, gradient descent, learning rates and stopping rules.
+- **Engine:** basic scalar gradient descent and progress traces.
+- **Completion:** known minimizers, reproducible traces, divergence/non-convergence cases.
+- **C++ opportunities:** data recording, interfaces, const correctness and encapsulation if warranted.
 
 ### Phase 6 — Optimization Experiments
-- **Concepts:** momentum, learning-rate schedules, fair algorithm comparisons.
-- **Build toward:** compare basic descent with selected incremental improvements.
-- **Completion check:** keep starting conditions and stopping rules comparable; demonstrate both useful and problematic parameter choices.
-- **Boundary:** remain in one dimension; multivariable training belongs to later projects.
+- **Math:** momentum, learning-rate schedules and fair comparisons.
+- **Engine:** evaluate selected variants against baseline gradient descent.
+- **Completion:** comparable initial conditions/stopping rules and clear parameter sensitivity.
+- **C++ opportunities:** algorithms, callables, possible limited generic programming and benchmarking.
+- **Boundary:** stay one-dimensional; multivariable training belongs to later projects.
 
 ### Phase 7 — Numerical Integration
-- **Concepts:** definite integrals, partition size, Riemann sums, trapezoid and Simpson rules.
-- **Build toward:** approximate definite integrals with multiple methods.
-- **Completion check:** compare against integrals with known exact values; demonstrate convergence and sensible input validation.
+- **Math:** Riemann sums, trapezoidal and Simpson's rules.
+- **Engine:** approximate definite integrals by several methods.
+- **Completion:** analytical comparisons, convergence observations and invalid-input checks.
+- **C++ opportunities:** loops, numeric algorithms, iterators and abstraction over functions.
 
 ### Phase 8 — Ordinary Differential Equation Solver
-- **Concepts:** initial-value problems, time stepping, Euler's method, a basic Runge–Kutta method.
-- **Build toward:** solve small one-variable ODE examples numerically.
-- **Completion check:** compare trajectories against known solutions, document step-size effects and failure limitations.
-- **Boundary:** no PDE or CFD solver in Mímir.
+- **Math:** scalar initial-value problems, Euler's method and introductory Runge–Kutta.
+- **Engine:** numerical trajectories for simple ODEs.
+- **Completion:** compare to known solutions; document time-step effects and limits.
+- **C++ opportunities:** structured results, state representation and regression tests.
+- **Boundary:** not a PDE/CFD solver.
 
 ### Phase 9 — Taylor Series Engine
-- **Concepts:** Taylor polynomials, local approximation, remainder/error.
-- **Build toward:** evaluate Taylor approximations for carefully selected functions.
-- **Completion check:** inspect approximation error as degree and distance from expansion point change.
-- **Boundary:** avoid building a broad computer algebra system.
+- **Math:** Taylor polynomials, remainder and local approximation error.
+- **Engine:** approximations for selected functions.
+- **Completion:** investigate degree and distance effects with exact reference values.
+- **C++ opportunities:** recurrences, careful numerical looping and, if useful, basic C++11 compile-time expressions.
+- **Boundary:** not a general symbolic algebra package.
 
 ### Phase 10 — Numerical Stability Laboratory
-- **Concepts:** cancellation, rounding, overflow, underflow and stability of formulas.
-- **Build toward:** reproducible demonstrations of floating-point pitfalls and safer equivalent formulations where appropriate.
-- **Completion check:** explain observed error or non-finite behavior with repeatable experiments; tests distinguish meaningful failures from acceptable rounding.
+- **Math:** cancellation, roundoff, conditioning, overflow, underflow and stable formulas.
+- **Engine:** reproducible experiments and comparisons of numerical formulations.
+- **Completion:** explain observed errors and non-finite behavior with repeatable evidence.
+- **C++ opportunities:** floating-point facilities, diagnostics, optimization flags and careful benchmarking.
 
 ### Phase 11 — Complete Optimization Workbench
-- **Concepts:** combining numerical tools into a consistent, inspectable workflow.
-- **Build toward:** a coherent CLI exposing the completed experiments, reproducible inputs, text-based results, and selected CSV exports.
-- **Completion check:** representative end-to-end workflows run successfully; regression/numerical tests pass; documentation explains the supported scope and limitations.
-- **Boundary:** no requirement for an interactive GUI, GPU execution, matrices/tensors, automatic differentiation or neural networks.
+- **Math/software:** coherent, reproducible numerical experimentation.
+- **Engine:** integrated CLI exposing the existing experiments, results, help and selected CSV exports.
+- **Completion:** end-to-end workflows, regression/numerical tests, documented limitations.
+- **C++ opportunities:** separation of modules, interface design, containers/algorithms, maintainability.
+- **Boundary:** no GUI, GPU, tensor engine, full automatic differentiation or neural networks.
 
-## Part B — Modernize the completed engine
+## Part A+ — C++11 mastery laboratories
 
-**Only after Part A is complete and tagged**, upgrade the same codebase in order:
+A separate stream of small **independent labs** may be pursued at appropriate moments across Phases 0–11 and, if necessary, after Phase 11 but **before** the modernization stage. These labs use C++11 and the standard library, and they never become mandatory features of the main CLI.
 
-1. **C++11 → C++14:** compile unchanged first; introduce useful C++14 improvements one at a time.
-2. **C++14 → C++17:** repeat the baseline-and-small-refactor process.
-3. **C++17 → C++20:** introduce only features that help clarity, correctness or maintainability.
-4. **C++20 → C++23:** modernize selectively, subject to actual Apple Clang/library support.
-5. **C++26:** optional, only after toolchain support and concrete benefit are established.
+Potential subjects (not immediate assignments):
 
-For every modernization step: preserve functionality, run regression/numerical tests, explain the motivation, commit the small change and tag meaningful checkpoints. Do not add a feature merely to exercise new syntax.
+- Preprocessing, multiple translation units, linking errors and build mechanics.
+- Declarations, scope, type conversions, object lifetimes, value categories and overload resolution.
+- Pointers, references, ownership, RAII, alignment and carefully reasoned undefined behavior.
+- Classes, construction, copying/moving, inheritance, virtual dispatch and exception safety.
+- Templates, specialization, traits, SFINAE, variadics and compile-time programming.
+- Streams, file I/O, locales, regular expressions, containers, algorithms and iterators.
+- Threads, mutexes, futures, atomics and the C++11 memory model in focused labs.
+- Time/space complexity, profiling, optimization tradeoffs and program portability.
 
-## Study dependencies and pace
+Being exposed to a feature **does not** count as mastering it; see the evidence rubric in `CPP_CURRICULUM.md`.
 
-- **Phase 0** can start now with basic functions and C++ basics.
-- **Limits and derivatives** become central in Phases 1–6.
-- **Integration** is central to Phase 7; **introductory differential equations** to Phase 8; **Taylor series** to Phase 9.
-- **Floating-point behavior** is examined from the beginning, with deeper treatment in Phase 10.
-- Phases may pause while the relevant mathematics is being learned. Accuracy and understanding take priority over dates or fixed milestone counts.
+## Part B — Modernize the *completed* C++11 engine
 
-## How we advance
+The complete C++11 engine and essential C++11 curriculum work must be tested and tagged before moving to C++14. Keep one shared codebase and preserve previous versions in Git.
 
-1. Approve this overall roadmap.
-2. Design **Phase 0 only** as extremely small milestones and record them in `MILESTONES.md`.
-3. Begin at **microstep −1.0.0**, one tiny learning/coding action at a time.
-4. For each completed milestone, follow `DEVELOPMENT.md`'s Definition of Done and commit.
-5. Revisit the roadmap explicitly if mathematical needs or project boundaries change.
+1. **C++14:** compile unchanged code first; study generalized lambda captures, relaxed `constexpr`, return-type deduction and standard-library additions; apply small justified refactors.
+2. **C++17:** study structured bindings, `if constexpr`, `std::optional`, `std::variant`, `std::string_view`, filesystem and other facilities; verify library availability.
+3. **C++20:** study concepts, ranges, comparisons, `std::span`, coroutines, modules, concurrency improvements and formatting where supported; keep unsupported topics conceptual or in documented experiments.
+4. **C++23:** investigate supported additions such as `std::expected`, `std::mdspan`, `std::print`, ranges improvements and `if consteval`, always checking both the compiler and standard-library implementation.
+5. **C++26:** optional later, depending on compiler maturity and educational value.
 
-**Not included in Project −1:** general-purpose tensor operations, full automatic differentiation, neural networks, tokenizers or language models. Those are handled by Projects 0–9.
+**Every modernization microstep:** confirm previous baseline → test new language mode unchanged → learn one concept → make a small behavior-preserving refactor only if useful → rerun tests and numerical checks → record/commit. Do not rewrite the engine or require use of every feature in production.
+
+## Dependencies and pace
+
+- Phase 0 begins with elementary C++ and functions; limits/derivatives support Phases 1–6, integration Phase 7, ODEs Phase 8 and Taylor series Phase 9.
+- Numerical correctness matters from the first actual numerical calculation, with deeper treatment in Phase 10.
+- C++ topics can be previewed, exercised, applied and revisited at greater depth. The number of microsteps is unrestricted.
+- **One microstep at a time.** Future subject lists are not simultaneous implementation assignments.
+- The mathematical scope remains suitable for learning alongside MathAcademy calculus.
+
+## Current checkpoint — 16 November 2026
+
+The learner confirmed completion through **Step −1.0.12** (created the Makefile target `mimir:` without a recipe). **Next: Step −1.0.13**, adding the first recipe under guidance. No source, Makefile or tests are modified by this roadmap update.
