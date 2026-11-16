@@ -1,3 +1,5 @@
+*.zip
+MEMO.md
 .vscode
 mimir
 # Prerequisites
