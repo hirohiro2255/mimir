@@ -1,5 +1,5 @@
 mimir: src/main.cpp
-	clang++ -std=c++11 -Wall -Wextra src/main.cpp -o mimir
+	clang++ -std=c++11 -Wall -Wextra -Wpedantic -g -O0 src/main.cpp -o mimir
 
 
 
