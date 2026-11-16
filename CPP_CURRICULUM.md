@@ -53,7 +53,7 @@ The following tracks are **thematic**, not fixed chronological weeks. Overlap is
 
 **Evidence:** explain compile versus link; independently diagnose a missing definition; build two source files using a tiny Makefile; demonstrate a change that does and does not trigger rebuild.
 
-**Progress (16 November 2026):** **introduced and practiced**: first C++11 program compiled, executed and output checked; Make targets, TAB-indented recipes, source prerequisites, timestamp-based rebuilding, forced rebuilds with `make -B`, warnings, `-g`, `-O0`, and variable definition `CXX = clang++`. **Next microstep is −1.0.33**, referencing that variable in the recipe. This is not completion of the C01 track.
+**Progress:** introduced and practiced through −1.0.89: compilation, timestamp rebuilds, Make variables, scalar calculations, functions and pass-by-value experiments. C01 is not complete. Next unfinished microstep is −1.0.90; see MILESTONES.md.
 
 ### C02 — Fundamental types, objects, values and conversions
 
@@ -207,6 +207,14 @@ The following tracks are **thematic**, not fixed chronological weeks. Overlap is
 
 **Evidence:** classify a facility by earliest standard, explain a portability or backwards-compatibility trap and demonstrate a small version-specific feature probe.
 
+## Applied data structures and algorithm reasoning
+
+[DSA_CURRICULUM.md](DSA_CURRICULUM.md) makes representation choice, ADT contracts, invariants, termination, time/space analysis and practical C++ application explicit. It draws selectively from Goodrich/Tamassia/Mount, Weiss (4th) and CLRS (4th), while preserving the original Stroustrup benchmark and all twenty C++ tracks.
+
+Core applications: sampling and streaming; contiguous sample/trace storage when needed; reductions and error summaries; bisection invariants; bounded solver state; evaluation budgets; quadrature accumulation; Taylor recurrences and Horner evaluation. Searching, sorting, associative lookup and more elaborate structures require a real workload. Handwritten structures are optional learner-authored labs, not replacement engine infrastructure by default.
+
+Use the D01–D08 strands and phase mapping in that file alongside C03–C07, C11–C12, C14–C15 and C18–C19. Do not equate using a container with understanding its costs, or speed with numerical correctness. This is planning, not completion evidence or a requirement to finish three additional books before modernization.
+
 ## Part II — C++ standard progression and advanced facilities
 
 These stages are **sequential**, not simultaneous. The C++11 engine is completed and tagged *before* C++14 modernization begins. Learner-written experiments may document unsupported features in theory; a feature is **not** marked runnable until verified using both the local compiler and standard library.
@@ -261,10 +269,12 @@ A track status starts as **not assessed** unless the learner has actually demons
 
 | Track | Current evidence | Level / status |
 | --- | --- | --- |
-| C01 — Toolchain/build | Learner-reported: compiled C++11 `main`, ran it, observed exit status/output, practiced Make targets/prerequisites/recipes, timestamp behavior, `make -B`, warning/debug/optimization flags and `CXX` variable definition through −1.0.32 | **1–2 for introductory subtopics only**, not assessed for full track |
-| C02 — Types | Encountered `int main()`, but no depth assessment recorded | Not assessed |
-| C13 — I/O | Used `std::cout` for a hello message, but no depth assessment recorded | Not assessed |
-| C03–C12, C14–C20 | No mastery evidence documented yet | Not assessed |
+| C01 — Toolchain/build | Confirmed builds and runs through −1.0.89; CXX/CXXFLAGS expansion, incremental builds and function declaration/definition/calls | **1–2 for introductory subtopics only**, not assessed for full track |
+| C02 — Types | Used double literals and variables; explained stored initialization versus reassignment after correcting an initial misconception | Introductory evidence only; full track not assessed |
+| C13 — I/O | Printed scalar results, newline/space characters and two input/result rows | Introductory evidence only; full track not assessed |
+| C04 — Functions | Learner wrote square, used declaration/definition/calls/return, explained argument versus parameter and tested by-value independence | Introductory application and reasoning; not full-track mastery |
+| D01–D08 — DSA | Plan added; no containers, search/sort, formal invariants or complexity analysis demonstrated yet | Planned; not assessed |
+| Remaining C++ subtopics/tracks | No additional mastery claim | Not assessed |
 | M14, M17, M20, M23 | Not started; C++11 engine first | Not started |
 
 **Important distinction:** user-reported completed steps are trusted as progress reports, not direct external code inspection. We have not yet claimed a full code review or test suite.
@@ -286,4 +296,6 @@ When revising this document, record:
 - No arbitrary deadline, fixed number of steps, or unearned certification of mastery.
 - Not every possible C++ specification detail will become a full standalone engine feature; genuinely relevant depth is demonstrated through *appropriate experiments and explanations*.
 
-**Immediate next action is microstep −1.0.33**, substituting `$(CXX)` for the literal compiler command in the existing recipe. This does not imply C01 mastery; do not jump to concurrency, templates or C++23 simply because this curriculum mentions them.
+**Last confirmed step:** −1.0.89. **Next unfinished step:** −1.0.90, introduced but not completed. The learner verified restored output `3 9` and `4 16`; adding `const` to the function definition's by-value parameter is pending.
+
+The DSA planning update does not introduce an additional coding assignment. Resume the pending microstep only.

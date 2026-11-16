@@ -3,8 +3,8 @@
 **Checkpoint date:** 16 November 2026  
 **Project:** −1 — C++ mastery through numerical computing  
 **Phase:** 0 — Mathematical Function Explorer  
-**Last explicitly confirmed step:** **−1.0.32**  
-**Next uncompleted step:** **−1.0.33**
+**Last explicitly confirmed step:** **−1.0.89**  
+**Next uncompleted step:** **−1.0.90**
 
 This register is reconstructed from the learner's reports in the conversation. It is **not an independent inspection** of the Mac's `mimir/` directory. Do not infer unreported Git commits, test runs or file contents. Two steps were covered without a separately recorded command result; this does **not** block proceeding to the agreed next step.
 
@@ -46,16 +46,73 @@ This register is reconstructed from the learner's reports in the conversation. I
 | **−1.0.31** | Compile complete C++11 development configuration | DONE — learner confirmed |
 | **−1.0.32** | Define `CXX = clang++` above Make target | DONE — learner confirmed |
 
+| **−1.0.33** | Reference $(CXX) in the recipe; learner confirmed saved edit | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.34** | Force rebuild; displayed clang++ expansion verified | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.35** | Define CXXFLAGS with the six existing C++11 development options | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.36** | Reference $(CXXFLAGS) in recipe | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.37** | Force rebuild; both variables expand to original command; learner confirmed success | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.38** | Run rebuilt greeting; learner corrected initial displayed yen/newline report and confirmed Hello, Mimir! | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.39** | Replace greeting with numerical expression 2.0 * 2.0; statement reviewed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.40** | Compile numerical expression; compiler command reported, no diagnostics reported | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.41** | Run numerical expression; output 4 confirmed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.42** | Append newline character; statement reviewed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.43** | Compile newline change; no diagnostics reported | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.44** | Run; output 4 with prompt on following line confirmed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.45** | Explain quoted expression as text rather than evaluated multiplication | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.46** | Define double x initialized to 2.0; declaration reviewed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.47** | Use x * x in output; statement reviewed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.48** | Compile named input; no diagnostics reported | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.49** | Run named input; output 4 confirmed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.50** | Change initial x to 3.0; initial prediction 3 immediately corrected by learner to 9 | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.51** | Compile new input; no diagnostics reported | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.52** | Run; output 9 confirmed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.53** | Define double y initialized with x * x; declaration reviewed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.54** | Print y followed by newline; statement reviewed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.55** | Compile named result; no diagnostics reported | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.56** | Run; output 9 confirmed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.57** | Explain initialization stores result, not live formula; initial prediction 16 corrected through discussion | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.58** | Assign x = 4.0 after y initialization; assignment reviewed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.59** | Compile assignment experiment; no diagnostics reported | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.60** | Run; output stays 9 confirmed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.61** | Reassign y using x * x; assignment reviewed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.62** | Compile recalculation; no diagnostics reported | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.63** | Run; output 16 confirmed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.64** | Print x, space, y and newline; statement reviewed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.65** | Compile paired output; no diagnostics reported | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.66** | Run; output 4 16 confirmed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.67** | Add earlier input/result output before changing x; placement instructed and later two-row output confirms behavior | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.68** | Compile two-row output; no diagnostics reported | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.69** | Run; rows 3 9 and 4 16 confirmed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.70** | Declare square(double value); learner's valid but confusing parameter name square changed to value | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.71** | Compile declaration without calls; no diagnostics reported | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.72** | Identify square expression value * value after guiding hint | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.73** | Write return value * value; statement reviewed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.74** | Write square definition below main; learner corrected indentation to four spaces; definition reviewed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.75** | Compile function definition; no diagnostics reported | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.76** | Initialize y using square(x); declaration reviewed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.77** | Compile/link first function call; no diagnostics reported | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.78** | Run; rows 3 9 and 4 16 confirmed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.79** | Reassign y using square(x); assignment reviewed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.80** | Compile second function call; no diagnostics reported | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.81** | Run; rows 3 9 and 4 16 confirmed | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.82** | Explain argument versus parameter and independent names; second call copies 4.0 | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.83** | Explain by-value parameter independence; distinguish language semantics from physical calling convention | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.84** | Insert temporary value = 10; inside square before return; full learner-written function reviewed; integer-to-double assignment explained | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.85** | Compile parameter experiment; no diagnostics reported | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.86** | Run; rows 3 100 and 4 100 confirmed; caller inputs unchanged | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.87** | Remove temporary assignment; learner confirmed DONE | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.88** | Compile restored square; no diagnostics reported | DONE — learner confirmation / pasted statement / reported output as described |
+| **−1.0.89** | Run restored baseline; rows 3 9 and 4 16 confirmed | DONE — learner confirmation / pasted statement / reported output as described |
+
 ## Next microstep — only one assigned
 
-### −1.0.33 — Reference the `CXX` Make variable in the recipe
+### −1.0.90 — Protect the by-value parameter with const
 
-- **Status:** **NOT YET CONFIRMED / NOT STARTED**. The previous conversation *introduced* the step, but the learner asked to prepare documentation instead of reporting `DONE`.
-- **Present reported state:** `CXX = clang++` is already defined above the Make target. The recipe still starts with the literal `clang++`.
-- **One tiny learner action:** replace **only** the literal command `clang++` at the beginning of the recipe with `$(CXX)`; leave the C++11 flags, prerequisite and everything else unchanged. Do not compile yet; next step will test expansion.
-- **Concept:** Make variable references and expansion; `$(CXX)` expands to the assigned value `clang++`.
-- **Check:** learner confirms the line was changed and saved. Ask what compiler Make would invoke if `CXX = g++` (answer: `g++`, when the recipe runs).
-- **Assistant's role:** explain, guide, and wait for confirmation before introducing −1.0.34. No whole-file code generation.
+- **Status:** INTRODUCED / PENDING. Learner paused before editing to discuss the DSA curriculum.
+- **One learner action:** add const immediately before double in the parameter of the square definition below main. Leave the earlier declaration unchanged.
+- **Concept:** a top-level const by-value parameter protects the local copy from reassignment; it does not change the caller's argument or the function type.
+- **Check:** learner pastes only the updated definition header; no compilation yet. Do not infer completion from this explanation.
+- **Last verified baseline:** reported output rows 3 9 and 4 16 after the temporary parameter-mutation experiment was removed.
 
 ## Current reported build snapshot
 
@@ -63,7 +120,7 @@ This register is reconstructed from the learner's reports in the conversation. I
 mimir/
 ├── Makefile           # CXX definition + target, prerequisite, recipe
 ├── src/
-│   └── main.cpp       # hello greeting using std::cout
+│   └── main.cpp       # two-row square-function explorer
 ├── tests/             # created; no test file confirmed
 ├── mimir              # compiled executable
 └── mimir.dSYM/        # observed after compiling with -g on macOS
@@ -73,12 +130,13 @@ Current Makefile contents as **reconstructed from learner-confirmed changes**, n
 
 ```makefile
 CXX = clang++
+CXXFLAGS = -std=c++11 -Wall -Wextra -Wpedantic -g -O0
 
 mimir: src/main.cpp
-	clang++ -std=c++11 -Wall -Wextra -Wpedantic -g -O0 src/main.cpp -o mimir
+	$(CXX) $(CXXFLAGS) src/main.cpp -o mimir
 ```
 
-The learner reported successful C++11 compilation with these flags and `make -B`. The `Makefile` variable is defined but **not yet used**. The existing local project may also contain the separately downloaded documentation from earlier conversations; this has not been inspected.
+The learner reported successful builds using both variables and ordinary make for saved source changes. No diagnostics were reported; separate shell exit-status checks were not requested in these later steps. main initializes x to 3.0, obtains y from square(x), prints the pair, assigns x to 4.0, reassigns y through square(x), and prints the second pair. The declaration above main and definition below main use double value; the function returns value * value. const is not yet added. The existing local project may also contain the separately downloaded documentation from earlier conversations; this has not been inspected.
 
 ## Progress-recording rules
 
@@ -88,3 +146,6 @@ The learner reported successful C++11 compilation with these flags and `make -B`
 4. Preserve the C++11 standard-library-only engine; modernize only after the completed baseline.
 5. When Git is introduced, commit verified work; no Git initialization or commits are claimed yet.
 6. **Before every fresh conversation, the assistant must update and offer downloadable copies of this file and [SESSION_HANDOFF.md](SESSION_HANDOFF.md)** using verified progress from the just-finished session. Make sure last-completed and next-unfinished step identifiers agree; see [SESSION_HANDOFF.md, Section 6](SESSION_HANDOFF.md) for the standing handoff procedure.
+## DSA planning discussion — not a code microstep
+
+Learner requested selective application of Goodrich/Tamassia/Mount, Weiss (4th) and CLRS (4th) to Project −1. Added DSA_CURRICULUM.md and linked the phase applications, design/analysis workflow and evidence rules in the existing documentation. Core, conditional and lab/deferred topics are explicit. No arrays/vectors, search/sort, formal cost/invariant analysis, automated tests or Git have been confirmed. The learner's full repository and project.zip have not been inspected; pasted snippets and output are the evidence.

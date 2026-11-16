@@ -1,67 +1,44 @@
-# Mímir — Testing, Numerical Verification and C++ Experiments
+# Testing and Numerical Verification — Project −1
 
-**The learner writes tests and implementations.** AI follows [AGENTS.md](AGENTS.md), providing feedback, guiding questions and very small illustrations. Tests help demonstrate learning; testing infrastructure itself evolves gradually.
+## Philosophy
+Tests are part of learning, not an afterthought. Start with a simple `if` and a meaningful exit status; evolve only when repeated boilerplate justifies a helper. The learner writes tests and implementation, guided by [AGENTS.md](AGENTS.md).
 
-## Staged test infrastructure
+## Initial test harness
+- C++11 standard library only; no external testing framework.
+- Separate test executable as soon as it is useful.
+- Use `make test` to run tests once the Makefile has a test target.
+- Report failures clearly and return a nonzero exit code.
+- Potential later helpers: exact equality, boolean checks, approximate numerical equality; don't build them prematurely.
 
-1. **Early setup:** check files/directories, compile status, executable behavior and exit status manually. No harness exists yet.
-2. **First behavior:** tiny C++11 `if` checks, clear failure messages and nonzero failure exit status.
-3. **Growing suite:** separate test executable, tiny reusable helpers only if justified, and eventually `make test`.
-4. **Larger engine:** unit tests, regression checks and selected CLI end-to-end verification with no third-party framework.
-5. **Modernization:** rerun the known baseline in C++14/17/20/23 and investigate actual differences.
+## Floating-point policy
+Use `double` by default. For finite expected and actual values, a common comparison form is:
 
-## Numerical checks
+`abs(actual - expected) <= abs_tol + rel_tol * max(abs(actual), abs(expected))`
 
-Start with `double`. One *possible* finite-value comparison formula is:
+- Choose tolerances based on the algorithm, scale, and expected error; no universal magic epsilon.
+- Treat NaN and infinities explicitly rather than allowing them to pass by accident.
+- Use exact equality only where exactness is meaningful.
 
-```text
-abs(actual - expected) <= abs_tol + rel_tol * max(abs(actual), abs(expected))
-```
+## Numerical verification categories
+- **Known values:** polynomial evaluations and derivatives with analytical answers.
+- **Roots:** known roots and checks on preconditions (for example, bracketing for bisection).
+- **Optimization:** known minimizers, stopping criteria, and non-convergence cases.
+- **Integration:** compare numerical integrals with known antiderivatives.
+- **ODEs:** compare simple initial-value problems with known solutions.
+- **Convergence:** vary step size or iteration count under conditions where improvement is expected.
+- **Stability:** explore roundoff, cancellation, overflow, underflow, and finite-difference error.
+- **Invalid input:** test bad parameters and failure reporting.
 
-Tolerances depend on mathematical conditioning, scale and method; there is **no universal epsilon**. Check NaN and ±infinity explicitly before comparing. Use exact equality only for cases where exactness is justified.
+## Test-driven microstep cycle
+1. State the next tiny observable behavior.
+2. Write a focused test that fails for the expected reason, where practical.
+3. Implement the minimum change yourself.
+4. Run the focused test, then all regression tests.
+5. Run the program to demonstrate the new capability.
+6. Make only necessary small refactors; rerun tests.
+7. Commit the completed milestone.
 
-| Category | Verification examples |
-| --- | --- |
-| Functions | Known values, correct domain handling and output |
-| Limits | Left/right samples and finite-precision pitfalls |
-| Derivatives | Analytical references, step-size/error behavior |
-| Roots | Known roots, failed brackets, iteration exhaustion |
-| Optimization | Known minima, traces, convergence and divergence |
-| Integrals | Analytical results, convergence with finer partitions |
-| ODEs | Known scalar solutions, time-step effects |
-| Taylor | Degree/distance effects against reference functions |
-| Stability | Cancellation, overflow, underflow and alternatives |
-| Workbench | End-to-end CLI input/output, errors, CSV sanity |
+A deliberately failing test is normal *during* TDD; the committed milestone must pass. A build passing is not proof of mathematical correctness.
 
-## Test-first cycle (where practical)
-
-Describe one tiny result → learner writes one focused failing test → learner implements minimum behavior → run focused and regression tests → small cleanup if justified → commit once working and understood. A red test may be temporary; don't leave completed behavior in a failing state. **Scaffolding steps can use simpler checks**: don't insist on tests/Git before those systems are created.
-
-## C++ mastery checks beyond runtime tests
-
-For each substantial concept, demonstrate understanding with small activities **one at a time**:
-
-- **Predict and explain** a short program, conversion, overload, object lifetime or container invalidation.
-- **Write** a tiny learner-authored example and check what is guaranteed by the standard.
-- **Diagnose** a compiler/linker error or warning, including a deliberately non-compiling *isolated* lab.
-- **Reason** about ownership, dangling references, exception safety, complexity, concurrency and undefined behavior without relying on any particular UB output.
-- **Compare** two designs and explain when *not* to use the more advanced one.
-- **Transfer** knowledge to a new task rather than memorizing an example.
-
-A compiler accepting source does not prove correct semantics, a successful run does not prove race freedom, and a passing numerical test does not establish all-condition correctness.
-
-## Debugging and tools (introduced later, as microsteps)
-
-- Understand warnings (`-Wall -Wextra -Wpedantic`), compiler errors, stack traces and debugger use.
-- Use AddressSanitizer/UndefinedBehaviorSanitizer **if supported** as defect-finding aids, not proofs of absence of undefined behavior.
-- Benchmark reproducible cases, distinguish optimized/debug builds and don't generalize from noise.
-- Keep **deliberately broken compiler experiments** outside the required green engine build.
-- For concurrency, test and reason about synchronization; don't assume one specific interleaving.
-
-## Modernization regression
-
-Before and after a language-version upgrade: record known inputs/outputs, compiler/library versions, preserve old tests, run unchanged code in the new mode, then introduce *one* facility and measure any effect. Do not demand identical floating-point bit patterns without justification. **Check both language and library feature support**, especially in C++20/23.
-
-## Evidence of C++ understanding
-
-Use the [CPP_CURRICULUM.md](CPP_CURRICULUM.md) 0–4 rubric: explanation, independent application, analysis of failures/alternatives, and transfer. A topic's mere appearance in source code is not proof of mastery. Evidence can cite a milestone or Git commit once available.
+## Modernization regression policy
+Before and after each C++ standard upgrade, compare results using justified numerical tolerances. Preserve reference test cases and investigate changes rather than assuming exact floating-point bit patterns must always match.

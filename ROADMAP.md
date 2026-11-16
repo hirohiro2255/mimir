@@ -1,4 +1,4 @@
-# Mímir — Overall Roadmap v2.0
+# Mímir — Overall Roadmap v2.1
 
 **Project −1: C++ Mastery Through a Calculus & Numerical Optimization Engine**
 
@@ -17,9 +17,18 @@ This is a direction-setting roadmap, **not a demand to implement every item now*
 
 The C++ curriculum is **not divided evenly** among the mathematical phases. Some topics occur early, some are revisited across phases, and newer-standard facilities belong to the modernization journey. Mathematical progress and C++ progress can move at different speeds.
 
+## Explicit DSA application path
+
+[DSA_CURRICULUM.md](DSA_CURRICULUM.md) supplies the detailed phase mapping, selective book references, prerequisites and evidence requirements. This strengthens the existing two paths: algorithms and representation choices connect the mathematical work to C++ engineering.
+
+Core: contracts, invariants, termination, operation counts, time/space complexity, streaming versus retained sequences, reductions, interval halving, and polynomial evaluation. Conditional: searching sorted samples, ranking summaries, maps and other structures when an actual use case justifies them. Optional labs cover selected textbook implementations; graph algorithms, advanced trees, dynamic programming, FFT and other unrelated subjects are deferred rather than forced into the scalar engine.
+
+The original twelve phases and modernization order remain unchanged. No immediate vector, container library, parser, adaptive integration, or new project is assigned.
+
 ## Part A — Complete the C++11 engine (12 original phases)
 
 ### Phase 0 — Mathematical Function Explorer
+- **DSA application:** Streaming/counting samples; records and vectors only when retaining results is needed; scans and explicit operation counts.
 - **Math:** function domains/ranges, input/output, sampling, tables and coordinate axes.
 - **Engine:** evaluate selected explicit functions, print value tables and simple ASCII graphs.
 - **Completion:** verify known values, output consistency and invalid-input handling.
@@ -27,6 +36,7 @@ The C++ curriculum is **not divided evenly** among the mathematical phases. Some
 - **Boundary:** no general expression parser or GUI.
 
 ### Phase 1 — Limits and Numerical Precision
+- **DSA application:** Ordered approach sequences, valid traversal and finite-value contracts.
 - **Math:** limits, one-sided approaches, continuity and finite precision.
 - **Engine:** sample functions approaching a chosen value with adjustable steps.
 - **Completion:** demonstrate a valid example and a misleading finite-precision case; handle non-finite values.
@@ -34,12 +44,14 @@ The C++ curriculum is **not divided evenly** among the mathematical phases. Some
 - **Boundary:** numerical sampling does not prove a limit.
 
 ### Phase 2 — Numerical Differentiation
+- **DSA application:** Fixed stencils, function-evaluation budgets and justified reuse.
 - **Math:** derivative and forward, backward and central finite differences.
 - **Engine:** approximate derivatives with adjustable step sizes.
 - **Completion:** compare against known analytical results; investigate error versus step size.
 - **C++ opportunities:** functions, interfaces, parameter passing and focused tests.
 
 ### Phase 3 — Derivative Verification
+- **DSA application:** Error records and streaming min/max/reduction summaries.
 - **Math:** analytical differentiation, chain rule and error metrics.
 - **Engine:** compare supplied exact derivatives with numerical approximations.
 - **Completion:** correct error reports over representative points; explain numerical discrepancies.
@@ -47,18 +59,21 @@ The C++ curriculum is **not divided evenly** among the mathematical phases. Some
 - **Boundary:** no symbolic differentiation engine required.
 
 ### Phase 4 — Root-Finding Engine
+- **DSA application:** Bracketing/termination invariants and interval-halving costs; Newton failure guards.
 - **Math:** zeros, bracketing, bisection, Newton's method, convergence and failure.
 - **Engine:** scalar bisection and Newton solvers.
 - **Completion:** solve valid problems and explicitly report invalid brackets, near-zero derivatives and iteration limits.
 - **C++ opportunities:** result types, invariants, error handling and elementary user-defined types.
 
 ### Phase 5 — One-Dimensional Optimization
+- **DSA application:** Bounded iteration state; optional contiguous traces; distinguish O(1) current state from O(k) retained history.
 - **Math:** minima, derivatives, gradient descent, learning rates and stopping rules.
 - **Engine:** basic scalar gradient descent and progress traces.
 - **Completion:** known minimizers, reproducible traces, divergence/non-convergence cases.
 - **C++ opportunities:** data recording, interfaces, const correctness and encapsulation if warranted.
 
 ### Phase 6 — Optimization Experiments
+- **DSA application:** Comparable run records, scans and conditional ranking; preserve raw trace order.
 - **Math:** momentum, learning-rate schedules and fair comparisons.
 - **Engine:** evaluate selected variants against baseline gradient descent.
 - **Completion:** comparable initial conditions/stopping rules and clear parameter sensitivity.
@@ -66,12 +81,14 @@ The C++ curriculum is **not divided evenly** among the mathematical phases. Some
 - **Boundary:** stay one-dimensional; multivariable training belongs to later projects.
 
 ### Phase 7 — Numerical Integration
+- **DSA application:** Streaming accumulation, evaluation reuse and accuracy-aware summation comparisons.
 - **Math:** Riemann sums, trapezoidal and Simpson's rules.
 - **Engine:** approximate definite integrals by several methods.
 - **Completion:** analytical comparisons, convergence observations and invalid-input checks.
 - **C++ opportunities:** loops, numeric algorithms, iterators and abstraction over functions.
 
 ### Phase 8 — Ordinary Differential Equation Solver
+- **DSA application:** Sequential state updates, fixed stage data and optional retained trajectories.
 - **Math:** scalar initial-value problems, Euler's method and introductory Runge–Kutta.
 - **Engine:** numerical trajectories for simple ODEs.
 - **Completion:** compare to known solutions; document time-step effects and limits.
@@ -79,6 +96,7 @@ The C++ curriculum is **not divided evenly** among the mathematical phases. Some
 - **Boundary:** not a PDE/CFD solver.
 
 ### Phase 9 — Taylor Series Engine
+- **DSA application:** Coefficient sequences, term recurrences and Horner evaluation.
 - **Math:** Taylor polynomials, remainder and local approximation error.
 - **Engine:** approximations for selected functions.
 - **Completion:** investigate degree and distance effects with exact reference values.
@@ -86,12 +104,14 @@ The C++ curriculum is **not divided evenly** among the mathematical phases. Some
 - **Boundary:** not a general symbolic algebra package.
 
 ### Phase 10 — Numerical Stability Laboratory
+- **DSA application:** Compare cost and numerical behavior together; reproducible workload and timing discipline.
 - **Math:** cancellation, roundoff, conditioning, overflow, underflow and stable formulas.
 - **Engine:** reproducible experiments and comparisons of numerical formulations.
 - **Completion:** explain observed errors and non-finite behavior with repeatable evidence.
 - **C++ opportunities:** floating-point facilities, diagnostics, optimization flags and careful benchmarking.
 
 ### Phase 11 — Complete Optimization Workbench
+- **DSA application:** Simple result/configuration records; dispatch/lookup representations justified by actual workload.
 - **Math/software:** coherent, reproducible numerical experimentation.
 - **Engine:** integrated CLI exposing the existing experiments, results, help and selected CSV exports.
 - **Completion:** end-to-end workflows, regression/numerical tests, documented limitations.
@@ -137,4 +157,6 @@ The complete C++11 engine and essential C++11 curriculum work must be tested and
 
 ## Current checkpoint — 16 November 2026
 
-The learner has progressed through **Step −1.0.32**, explicitly confirming creation of `CXX = clang++` as a Makefile variable. The project already has a compilation recipe and `src/main.cpp` prerequisite. **Next unfinished: Step −1.0.33**, replacing the recipe's literal `clang++` with `$(CXX)` while leaving all flags and other lines unchanged. See [MILESTONES.md](MILESTONES.md) and [SESSION_HANDOFF.md](SESSION_HANDOFF.md) for the live checkpoint. This documentation update does **not** modify the learner's local source or Makefile.
+**Last confirmed step:** −1.0.89. **Next unfinished step:** −1.0.90, introduced but not completed. The learner verified restored output `3 9` and `4 16`; adding `const` to the function definition's by-value parameter is pending.
+
+This is a documentation update only; no learner source, Makefile, tests or Git state was modified.

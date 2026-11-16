@@ -87,7 +87,7 @@ Some topics—advanced template techniques, deep inheritance, low-level memory, 
 - Do not add entire features, directories or test infrastructure ahead of their teaching step.
 - Preserve mathematical boundaries: no tensors, automatic differentiation, neural network, language model, GPU or CFD inside Mímir.
 - Record **confirmed** progress in [MILESTONES.md](MILESTONES.md).
-- Current checkpoint (16 November 2026): **−1.0.32 confirmed complete**; **−1.0.33 next**. The learner added `CXX = clang++`, but the recipe still invokes `clang++` literally. Refer to [MILESTONES.md](MILESTONES.md) and [SESSION_HANDOFF.md](SESSION_HANDOFF.md).
+- Current checkpoint (16 November 2026): **−1.0.89 confirmed complete**; **−1.0.90 pending**. The two-row square-function baseline is restored and verified. Refer to [MILESTONES.md](MILESTONES.md) and [SESSION_HANDOFF.md](SESSION_HANDOFF.md).
 - When documentation changes, distinguish *planning* from *implemented/tested* functionality.
 
 ## Conversation handoff and durable context
@@ -116,3 +116,8 @@ At each transition:
 6. Rerun regression/numerical checks, explain tradeoffs and commit.
 
 Newer syntax is **not automatically** better. Keep version-specific labs separate when modifying the engine would add complexity.
+## Applied data structures and algorithms — 16 November 2026 agreement
+
+Use [DSA_CURRICULUM.md](DSA_CURRICULUM.md) alongside the existing C++ curriculum. Before a nontrivial representation/algorithm change, establish the actual operations/workload, input/output contract, invariants, time/space costs, ownership/invalidation implications, numerical limitations and a simpler alternative. Develop this evidence across separate tiny steps.
+
+The engine uses appropriate standard-library containers and algorithms. Selected handwritten implementations belong in focused learner-authored labs unless a real engine need warrants otherwise. Benchmark only meaningful workloads, separately from console I/O, preserving numerical correctness. Advanced book topics are not mandatory engine features or new prerequisites for finishing every modernization stage. This planning agreement does not claim implemented DSA work or advance −1.0.90.

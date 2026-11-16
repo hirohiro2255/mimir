@@ -1,80 +1,38 @@
-# Mímir — C++ Mastery Through Mathematical Computing
+# Mímir — Calculus & Numerical Optimization Engine
 
-**Project −1** of an 11-project, dependency-free C++ learning journey leading toward a small, trainable GPT-like language model.
+**Project −1** of the C++ mathematical computing and language-model learning journey.
 
-## Mission
+## Purpose
+Build a dependency-free C++ numerical computing application incrementally, starting from elementary functions and growing alongside AP Calculus BC study into introductory numerical analysis and selected undergraduate topics. This is the prerequisite project for the 10-project journey (Projects 0–9) ending in a small, trainable GPT-like model.
 
-Build a real **Calculus & Numerical Optimization Engine** while pursuing a deep, rigorous education in C++: foundational programming, advanced language concepts, the standard library, abstraction and generic programming, memory and resource safety, compilation, concurrency, performance, and software engineering.
-
-Our ambition is practical depth and topic breadth **comparable to, and potentially deeper through hands-on work than, the combined scope** of three books by Bjarne Stroustrup:
-
-1. *Programming: Principles and Practice Using C++*, **3rd edition** (2024).
-2. *The C++ Programming Language*, **4th edition** (2013).
-3. *A Tour of C++*, **3rd edition** (2022).
-
-This is a **learning benchmark**, not a claim that Mímir already covers the books, a chapter-by-chapter reproduction, or a guarantee of mastery. Actual coverage and evidence will be recorded in [CPP_CURRICULUM.md](CPP_CURRICULUM.md).
-
-## Two learning paths within one project
-
-**A. Mathematical application:** twelve phases (0–11) building an increasingly useful CLI: functions, limits, differentiation, derivative verification, roots, one-variable optimization, numerical integration, introductory ODEs, Taylor series, numerical stability and an integrated workbench. See [ROADMAP.md](ROADMAP.md).
-
-**B. C++ mastery:** concept lessons, bite-size exercises, compiler/debugger experiments, tests, code-reading and independent *companion labs* for topics that do not reasonably belong in the engine. See [CPP_CURRICULUM.md](CPP_CURRICULUM.md).
+## Scope
+The planned engine will explore function evaluation, limits and numerical precision, numerical differentiation and verification, root finding, one-dimensional optimization, optimization experiments, numerical integration, introductory ODE solvers, Taylor approximations, numerical stability, and an integrated CLI workbench. The approved 12-phase overall plan is documented in [ROADMAP.md](ROADMAP.md); detailed microsteps are planned separately.
 
 ## Constraints
+- Initial implementation: **C++11**, using the C++ standard library only; no third-party runtime, math, ML, or test frameworks.
+- Compiler: **Apple Clang 21.0.0** (`clang++`).
+- Build system: **GNU Make 3.81**, with a minimal Makefile.
+- Development environment: macOS.
+- Keep verified executable checkpoints; individual edit/review/build/run microsteps are separate, and intentionally invalid experiments must be clearly identified and restored before concluding them. No automated tests or Git are presumed before their introduction.
+- After the C++11 engine is complete, modernize in small, verified steps through C++14, C++17, C++20, C++23; C++26 only when practical toolchain support is confirmed.
 
-- **C++11 first** for the complete original numerical engine, followed by verified modernization **C++14 → C++17 → C++20 → C++23**; C++26 optional when practical.
-- **C++ standard library only** in code: no third-party ML, numerical, GUI or testing frameworks. Companion labs are also standard-library-only.
-- Confirmed environment: **macOS**, **Apple Clang 21.0.0**, **GNU Make 3.81**.
-- **GNU Make**, no CMake requirement; grow the `Makefile` in tiny steps.
-- Start with the terminal, not Qt or a graphical interface.
-- **No upper limit** on tiny learning steps. Never inflate the real numerical engine with unrelated features just to practice them.
+## Teaching agreement
+Read [AGENTS.md](AGENTS.md) before helping with implementation. The learner writes the code; the assistant explains, guides, reviews, and provides only tiny illustrative snippets (normally 2–5 lines). Never jump to whole implementations.
 
-## Teaching contract
-
-Read [AGENTS.md](AGENTS.md) before implementation assistance. It is copied **unchanged** from the learner's uploaded `AGENTS.txt`.
-
-**The learner writes implementations.** The assistant teaches, asks guiding questions, reviews learner-written code and provides only tiny illustrative examples (normally 2–5 lines), not complete functions or files. One tiny, verifiable task at a time; progress is based on understanding, not amount of code generated. Early setup steps need only appropriate setup checks; meaningful code behavior will be tested when feasible.
-
-## Boundaries
-
-Later Projects 0–9 cover an XOR neural network, automatic differentiation, matrices/tensors, optimization, neural networks, tokenization, a tiny language model, self-attention, Transformers and mini GPT. Mímir does **not** build them. Its own numerical methods are primarily one-dimensional; its introductory ODE solver does not expand into a PDE or CFD system.
-
-For comprehensive C++ study, unrelated subjects such as advanced inheritance, custom allocators, regular expressions, low-level storage, concurrency, modules or coroutines can be practiced in **small isolated labs**.
-
-## Documentation index
-
-| File | Role |
-| --- | --- |
-| [AGENTS.md](AGENTS.md) | Primary teaching guidelines; preserved verbatim |
-| [README.md](README.md) | Name, mission and constraints |
-| [ROADMAP.md](ROADMAP.md) | Mathematical phases plus the two-path structure |
-| [CPP_CURRICULUM.md](CPP_CURRICULUM.md) | Expanded C++ coverage, progression and mastery checks |
-| [DEVELOPMENT.md](DEVELOPMENT.md) | Six decisions, incremental development and modernization |
-| [CODING_STANDARDS.md](CODING_STANDARDS.md) | Naming, safety, design and readability |
-| [TESTING.md](TESTING.md) | Numerical, software and C++-concept verification |
-| [MILESTONES.md](MILESTONES.md) | Progress through the last learner-confirmed microstep |
-| [SESSION_HANDOFF.md](SESSION_HANDOFF.md) | Current session checkpoint, precise next action and fresh-chat instructions |
-
-## Current state — 16 November 2026
-
-**User-reported progress:** Phase 0, Steps **−1.0.0 through −1.0.32** have been covered; **−1.0.32 is explicitly confirmed DONE**. Our precise **next uncompleted step is −1.0.33** (use the existing `CXX` variable in the compilation recipe). The assistant has not inspected the learner’s local files; see [MILESTONES.md](MILESTONES.md) for the step history and verification caveats.
-
+## Project organization (initial plan)
 ```text
-mimir/
-├── Makefile              # includes CXX definition, target, dependency and recipe
-├── src/
-│   └── main.cpp          # prints "Hello, Mimir!"
-├── tests/                # no test source confirmed yet
-└── mimir                 # locally compiled executable; may also have mimir.dSYM
+project-minus-one/
+├── AGENTS.md
+├── README.md
+├── DEVELOPMENT.md
+├── CODING_STANDARDS.md
+├── TESTING.md
+├── ROADMAP.md
+├── Makefile            # created in first setup milestone
+├── src/                # created in first setup milestone
+└── tests/              # created as tests begin
 ```
 
-Current **reported Makefile state**: `CXX = clang++` above `mimir: src/main.cpp`; recipe still invokes `clang++` directly with `-std=c++11 -Wall -Wextra -Wpedantic -g -O0`. This build was successfully tested via `make -B`. **Do not assume** `$(CXX)` is already used: that is the next tiny learner action.
+Current progress is recorded in [MILESTONES.md](MILESTONES.md) and [SESSION_HANDOFF.md](SESSION_HANDOFF.md). **Last confirmed step:** −1.0.89. **Next unfinished step:** −1.0.90, introduced but not completed. The learner verified restored output `3 9` and `4 16`; adding `const` to the function definition's by-value parameter is pending.
 
-To transfer to another chat, read [SESSION_HANDOFF.md](SESSION_HANDOFF.md) and attach the documentation files. **This documentation package does not modify or replace the learner's `Makefile`, C++ source, executable or tests.**
-## References
-
-- [Programming: Principles and Practice Using C++, 3rd ed.](https://www.stroustrup.com/programming.html)
-- [The C++ Programming Language, 4th ed.](https://www.stroustrup.com/4th.html)
-- [A Tour of C++, 3rd ed.](https://www.stroustrup.com/tour3.html)
-- [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
-- [cppreference](https://en.cppreference.com/)
+The comprehensive C++ benchmark is in [CPP_CURRICULUM.md](CPP_CURRICULUM.md). Selective applied data structures, correctness, complexity and representation decisions are in [DSA_CURRICULUM.md](DSA_CURRICULUM.md), informed by Goodrich/Tamassia/Mount, Weiss and CLRS without requiring every textbook subject inside the numerical engine. These documents describe plans and evidence, not generated implementation code.

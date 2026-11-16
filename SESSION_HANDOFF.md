@@ -1,75 +1,44 @@
 # Mímir — Session Handoff
-
-**Snapshot date:** 16 November 2026  
-**Purpose:** Transfer the complete working context into a **new ChatGPT conversation** and resume at the correct single microstep.  
-**Status:** Documentation-only handoff; no C++ source, Makefile or tests were edited by the assistant.
+**Snapshot date:** 16 November 2026
+**Status:** Documentation updated during the DSA planning discussion. No source, Makefile or tests edited by the assistant.
 
 ## 1. Resume here — most important
+- Project −1, Phase 0 — Mathematical Function Explorer.
+- Last explicitly learner-confirmed microstep: **−1.0.89** — restored square function compiled in −1.0.88 and produced rows 3 9 and 4 16 in −1.0.89.
+- Exactly next unfinished microstep: **−1.0.90** — add const before double in the by-value parameter of the square definition below main.
+- This step was introduced, then the learner paused before editing. No revised header or DONE has been received.
+- Keep the earlier declaration above main unchanged. Explain that top-level const protects the local copy; the declaration still matches.
+- Ask for only the updated definition header, then pause. Compilation is a future microstep, not part of the pending edit.
+- No pending unanswered concept check from −1.0.82/83; learner explained argument/parameter names and by-value independence successfully.
 
-- **Project:** Mímir, Project −1 in an 11-project C++ learning journey toward a tiny GPT-like model.
-- **Current phase:** 0 — Mathematical Function Explorer.
-- **Last explicitly learner-confirmed microstep:** **−1.0.32 — Add `CXX = clang++` above the Make target.** The learner replied `DONE`.
-- **Exactly next, not yet completed:** **−1.0.33 — Reference the `CXX` variable in the recipe.** The previous assistant explained this step; the learner has *not* replied `DONE` to it.
-- **Action for next assistant:** Resume **−1.0.33 only**; ask the learner to replace the literal leading `clang++` in the existing Make recipe with `$(CXX)`, keeping everything else unchanged, then pause for confirmation. **Do not skip to −1.0.34 or produce a whole Makefile.**
-- **Small concept check already posed:** If `CXX = g++`, which compiler will the recipe invoke when it runs? The learner has not answered yet.
+## 2. Current working state — learner-reported, snippets reviewed
+macOS; reported Apple Clang 21.0.0 and GNU Make 3.81; C++11 with -Wall -Wextra -Wpedantic -g -O0. Existing Makefile now defines CXX and CXXFLAGS, and references both in the compilation recipe. Timestamp rebuilds and forced rebuilds have been observed.
+src/main.cpp includes iostream. The declaration of square above main returns double and takes double value. main initializes x to 3.0, initializes y using square(x), prints x and y separated by a space and followed by a newline, sets x to 4.0, reassigns y using square(x), and prints the second pair. The definition below main returns value * value and uses four-space body indentation.
+The learner pasted their function definition for review. A temporary assignment of 10 to its local parameter produced rows 3 100 and 4 100, demonstrating caller independence. It was removed; the restored baseline was rebuilt and run successfully.
+The parameter is currently **not const**. Do not claim the introduced edit is already done.
+tests/ exists but no test files/harness are confirmed. No Git initialization, commits, additional source files, arrays/vectors or other DSA implementations are confirmed. mimir.dSYM was previously observed.
+Evidence consists of learner-pasted snippets and reported commands/output, not inspection of their Mac repository. project.zip remains uninspected. Later builds reported compiler commands with no diagnostics; no separate exit-status checks were requested.
 
-## 2. Current working state (reported, not inspected)
+## 3. Teaching agreement
+Read AGENTS.md first and keep it verbatim. The learner writes implementations; assistant teaches, asks guiding questions, reviews and explains. Illustrations are normally 2–5 lines, never entire functions/files or full implementations. One tiny action, a concrete check and a stop point. No advance without confirmation. Conceptual detours do not complete code steps.
+Tests/TDD and Git are introduced deliberately when meaningful, not retroactively presumed.
 
-The learner is on **macOS**, with **Apple Clang 21.0.0** and **GNU Make 3.81**. Current language mode is **C++11**; warning/debug options currently used: `-Wall -Wextra -Wpedantic -g -O0`.
+## 4. Goals and new DSA agreement
+Preserve the twelve mathematical phases, full C++11 baseline, standard-library-only rule and GNU Make. Later modernize C++14 → C++17 → C++20 → C++23; C++26 optional. Preserve the three Stroustrup books as the comprehensive C++ mastery benchmark. Breadth does not imply mastery; use the evidence rubric and optional independent labs.
+The learner requested stronger data-structure/algorithm choice, implementation, analysis and application, selectively informed by Goodrich/Tamassia/Mount, Weiss (4th) and CLRS (4th). See DSA_CURRICULUM.md: contracts, representation, invariants, termination, cost/space models, streaming/retained sequences, reductions, interval halving, recurrence and Horner evaluation are integrated with actual phase needs.
+Searching/sorting/maps are conditional on real workloads; trees/graphs/DP and other unrelated advanced topics belong in optional labs or later projects. No mandate to implement all three books or delay modernization indefinitely for them. No extra engine features, parser, adaptive integration, tensors or neural-network scope have been silently added.
+Public descriptions and contents were reviewed, not complete books. The Goodrich supplied archive is the 2004 volume; Wiley second-edition contents are explicitly supplementary. Exact first-edition chapter alignment is unverified.
+Keep 4-space indentation, project naming rules and numerical verification policy.
 
-The learner has created `mimir/`, `src/`, `tests/`, and `src/main.cpp`. The source contains a small `main()` with `<iostream>` and `std::cout` printing `Hello, Mimir!`. It has been compiled and run successfully. A `mimir.dSYM` directory was observed when using `-g` on macOS.
-
-The current **reconstructed** Makefile is:
-
-```makefile
-CXX = clang++
-
-mimir: src/main.cpp
-	clang++ -std=c++11 -Wall -Wextra -Wpedantic -g -O0 src/main.cpp -o mimir
-```
-
-The command line starts with a **real TAB** in the actual Make recipe, as introduced at Step −1.0.13. `make` demonstrated timestamp-based incremental behavior; `touch src/main.cpp` triggered a rebuild; `make -B` forced compilation; `make -B` with the full six-option configuration succeeded without warnings. **The compiler variable is defined but the recipe still uses the literal executable name.**
-
-No learner-written test files, Git initialization/commits, additional source files, or functioning math algorithms have been confirmed. `tests/` was created but there is no test harness yet. The first mathematical functionality remains ahead.
-
-**Evidence caveat:** These facts come from the conversation and explicit learner reports, **not** from the assistant opening the learner's Mac files. Two earlier milestones (−1.0.19 and −1.0.22) were taught without separately recorded command outputs; those lessons were subsequently followed by confirmed progress. See [MILESTONES.md](MILESTONES.md).
-
-## 3. The non-negotiable teaching agreement
-
-Read [AGENTS.md](AGENTS.md) **first**. It is an unchanged copy of the learner's `AGENTS.txt`. Its primary instruction is **teaching assistant, not code generator**:
-
-- **The learner writes code.** Explain concepts, give hints, review user-written code, ask guiding debugging questions, explain why.
-- Illustrative examples normally **2–5 lines**; do not write full functions, entire Makefiles, whole implementations, completed TODOs or broad refactors.
-- **One extremely tiny step per exchange**, even when a step only changes one flag or one token. Explain → learner action → concrete check → stop and wait.
-- Introduce tests/TDD when meaningful; scaffolding steps can be checked with terminal output. Do not pretend test infrastructure or Git exists already.
-- The learner can ask conceptual questions at any point; answer them without accidentally advancing the microstep.
-
-## 4. Goals and long-term constraints
-
-**Two complementary paths, not two unrelated projects:**
-
-1. **Mathematical engine:** 12 C++11 phases (0–11): function explorer; limits/precision; numerical derivatives; derivative verification; roots; 1D gradient descent; optimization experiments; integration; scalar ODEs; Taylor series; floating-point stability; integrated CLI/workbench.
-2. **Deep C++ mastery:** use the combined breadth/depth of Bjarne Stroustrup's *Programming: Principles and Practice Using C++* (3rd), *The C++ Programming Language* (4th), and *A Tour of C++* (3rd) as a **study benchmark**. Up to 20 C++11 subject tracks and subsequent modernization tracks, with tiny companion labs for unrelated advanced language topics. No arbitrary upper bound on steps; conceptual mastery requires evidence.
-
-- C++ standard library only; GNU Make instead of CMake; primarily terminal-based. No external mathematical, ML or testing frameworks.
-- **C++11 first**, build and test the full engine, then modernize the same project **C++14 → C++17 → C++20 → C++23** (C++26 optional if supported) in tiny verified changes, keeping checkpoints in Git once initialized.
-- Preserve the mathematical scope, avoid imposing unrelated architectures or GUI, and keep future Projects 0–9 (autograd, tensors, neural networks, GPT) outside Mímir.
-- Naming/style: 4-space C++ indentation; `snake_case` functions/variables/files, `PascalCase` types, `kPascalCase` constants; see [CODING_STANDARDS.md](CODING_STANDARDS.md).
-
-## 5. Documentation source of truth and hierarchy
-
-Read these files when supplied, in this order:
-
-1. **[AGENTS.md](AGENTS.md)** — primary teaching constraints; keep verbatim.
-2. **[SESSION_HANDOFF.md](SESSION_HANDOFF.md)** — live checkpoint and next step.
-3. **[MILESTONES.md](MILESTONES.md)** — step-by-step history/status.
-4. **[DEVELOPMENT.md](DEVELOPMENT.md)** — original six decisions and workflow.
-5. **[README.md](README.md)** — mission and constraints.
-6. **[ROADMAP.md](ROADMAP.md)** — 12 math phases and modernization route.
-7. **[CPP_CURRICULUM.md](CPP_CURRICULUM.md)** — deep C++ curriculum and mastery evidence.
-8. **[CODING_STANDARDS.md](CODING_STANDARDS.md)** and **[TESTING.md](TESTING.md)** — style and verification policy.
-
-If a general long-term statement seems at odds with recent **learner-confirmed progress**, ask for evidence rather than overwrite the checkpoint from memory. The milestone numbering for this project intentionally begins `−1.0.0`.
+## 5. Documentation order and authority
+1. AGENTS.md — unchanged primary teaching policy.
+2. SESSION_HANDOFF.md and MILESTONES.md — current state and exact next step.
+3. DEVELOPMENT.md — workflow/decisions; README.md — mission.
+4. ROADMAP.md — mathematical phases and modernization.
+5. CPP_CURRICULUM.md — comprehensive C++ coverage/evidence.
+6. DSA_CURRICULUM.md — applied DSA plan and selective book mapping.
+7. CODING_STANDARDS.md and TESTING.md — conventions and verification.
+Current checkpoints have been reconciled to −1.0.89 / −1.0.90. No later progress may be inferred.
 
 ## 6. Standing protocol — update both files before every session switch
 
@@ -84,22 +53,10 @@ If a general long-term statement seems at odds with recent **learner-confirmed p
 
 **At the start of each fresh session:** read the attached documents before proceeding, check for contradictions, and resume at the single next unfinished microstep. Do not skip ahead.
 
-**Current snapshot remains unchanged:** −1.0.32 is confirmed complete; −1.0.33 was explained but has not been confirmed complete.
+**Current snapshot:** −1.0.89 is confirmed complete; −1.0.90 was introduced but has not been completed.
 
-## 7. Instructions for starting a new conversation
 
-1. Place or retain these `.md` files in your existing `mimir/` project directory; they are documentation **only** and should not overwrite `src/main.cpp`, `Makefile`, `tests/`, your executable or `mimir.dSYM`.
-2. Start a fresh ChatGPT conversation (you can keep it inside your existing C++ Projects workspace/project if useful) and attach the updated Markdown documents or their ZIP.
-3. Send the following short message:
+## 7. Opening message for the next conversation
+> Continue Mímir, Project −1, Phase 0. Read AGENTS.md, SESSION_HANDOFF.md and MILESTONES.md first, then the linked curriculum and workflow documents, including DSA_CURRICULUM.md. I write all implementation code. Last confirmed step: −1.0.89. Resume only −1.0.90: protect square's by-value parameter with const in its definition; the edit is still pending. Ask for the updated header before compilation. Keep every action extremely tiny.
 
-> We are continuing **Mímir**, my C++11-first, very incremental C++ mastery and numerical computing project. I attached our documentation. Read `AGENTS.md`, `SESSION_HANDOFF.md`, and `MILESTONES.md` first, and follow the other files for the established decisions. I write all implementation code. Please resume at **Step −1.0.33** only, with one extremely small teaching action and a clear verification. Do not generate full files or skip milestones.
-
-4. Once the learner completes −1.0.33, record `DONE` before moving to −1.0.34. **Before the next session switch, follow the standing protocol in Section 6 and deliver refreshed downloadable copies of both `MILESTONES.md` and `SESSION_HANDOFF.md`.**
-
-## 8. What not to do on resume
-
-- Do **not** resume at −1.0.13; that's an obsolete checkpoint in older Markdown files.
-- Do **not** mark −1.0.33 done just because the preceding assistant *described* it.
-- Do **not** switch to C++17 or C++23; the current engine is C++11 and in early Phase 0.
-- Do **not** initialize Git, add tests, change the whole Makefile, or begin calculus features without making those their own future microsteps.
-- Do **not** equate a successful compile with deep C++ mastery.
+Before every session switch, follow Section 6 and deliver refreshed individual handoff files and a full documentation ZIP. Do not replay earlier lessons or mark planned DSA work as implemented.
