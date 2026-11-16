@@ -121,3 +121,9 @@ Newer syntax is **not automatically** better. Keep version-specific labs separat
 Use [DSA_CURRICULUM.md](DSA_CURRICULUM.md) alongside the existing C++ curriculum. Before a nontrivial representation/algorithm change, establish the actual operations/workload, input/output contract, invariants, time/space costs, ownership/invalidation implications, numerical limitations and a simpler alternative. Develop this evidence across separate tiny steps.
 
 The engine uses appropriate standard-library containers and algorithms. Selected handwritten implementations belong in focused learner-authored labs unless a real engine need warrants otherwise. Benchmark only meaningful workloads, separately from console I/O, preserving numerical correctness. Advanced book topics are not mandatory engine features or new prerequisites for finishing every modernization stage. This planning agreement does not claim implemented DSA work or advance −1.0.90.
+
+### Working expectations and decision records
+
+The learner asked to preserve the follow-up discussion for future reference. [DSA_CURRICULUM.md — Working expectations and future discussions](DSA_CURRICULUM.md#working-expectations-and-future-discussions) records the standing distinctions between language mastery, algorithmic understanding, analysis and application; workload-specific efficiency; learner-written labs and standard-library selection; numerical correctness/error/convergence/cost; selective DSA-book scope; and just-in-time refinement of a stable plan.
+
+When a meaningful decision changes, record its problem, chosen approach, assumptions/rationale, alternatives, evidence/uncertainty and scope consequences in the affected document. Mark proposed, adopted and implemented work distinctly. Preserve the exact confirmed checkpoint when discussion does not advance code. Current checkpoint remains −1.0.89 complete, −1.0.90 pending.

@@ -1,5 +1,5 @@
 # Mímir — Data Structures, Algorithms and Analysis Plan
-**Version:** 1.0 — 16 November 2026
+**Version:** 1.1 — 16 November 2026
 **Scope:** Project −1; C++11 first; additions to the existing twelve mathematical phases.
 **Status:** Approved planning direction from the learner's request. No new DSA implementation is claimed.
 **Checkpoint:** −1.0.89 confirmed complete; −1.0.90 pending. This planning discussion does not advance code.
@@ -14,6 +14,27 @@ This plan uses public descriptions and tables of contents, not a claim to have r
 - **Mark A. Weiss, Data Structures and Algorithm Analysis in C++, fourth edition:** [Pearson contents](https://www.pearson.com/en-ca/subject-catalog/p/data-structures-and-algorithm-analysis-in-c-/P200000003459/9780133404210) identify ISBN 9780133404180 and provide chapters on analysis, containers, trees, hashing, heaps, sorting, algorithm design and amortized analysis. Use for translating contracts, invariants and cost arguments into responsible C++ implementations.
 - **Cormen, Leiserson, Rivest and Stein, Introduction to Algorithms, fourth edition:** [MIT Press](https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/) and its [official contents](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/11599/4e_toc.pdf). Use selected correctness, asymptotic analysis, divide-and-conquer and amortization material. CLRS pseudocode requires deliberate C++11 adaptation; it is not a drop-in implementation. Its scope is much larger than Mímir.
 The mapping below is our curriculum design judgment. These are references, not three mandatory cover-to-cover courses, additional mastery benchmarks equivalent to the Stroustrup commitment, or guarantees of full-book coverage. Older C++ examples must be checked against our C++11 ownership and safety rules. No additional purchase is required for the next microstep.
+
+## Working expectations and future discussions
+
+**Recorded agreement — 16 November 2026.** These expectations supplement the DSA phase mapping and apply to later planning discussions.
+
+1. **Assess distinct abilities separately.** C++ language knowledge, data-structure/algorithm understanding, correctness and cost analysis, and engineering application reinforce each other, but one does not establish the others. Knowing vector syntax does not establish that vector is the right representation. Implementing a working algorithm does not establish its correctness proof or cost bounds. Record evidence for the specific ability and subtopic, using the existing mastery rubric.
+2. **Define efficiency before optimizing.** State the workload, input size, access/update pattern and accuracy requirements. Identify relevant costs: function evaluations, arithmetic, allocation/copying, retained memory, elapsed time and implementation complexity. These goals can conflict. Prefer the simplest approach that meets the stated needs; do not label an approach efficient without its assumptions and comparison.
+3. **Practice both implementation and selection.** Learner-written implementations in small labs reveal mechanisms, invariants, ownership and failure modes. Appropriate standard-library use in the engine develops selection and integration skills. Neither replaces the other. A completed lab does not automatically justify using its handmade structure in the engine.
+4. **Keep numerical reasoning explicit.** Distinguish program correctness under its contract, numerical error, convergence assumptions and computational cost. A terminating loop that preserves an invariant can still produce inaccurate floating-point output. A solver can stop without converging. A faster or mathematically equivalent formulation is not automatically numerically suitable.
+5. **Respect Mímir's educational scope.** This project provides substantial applied DSA practice, not full coverage of the three DSA books. They are selective references, unlike the existing combined Stroustrup breadth/depth benchmark for long-term C++ mastery. Relevant optional labs and later projects provide places for subjects outside the scalar engine. Do not silently turn deferred topics into requirements for finishing Project −1 or every modernization stage.
+6. **Keep the broad plan stable; refine details when needed.** Maintain the twelve mathematical phases, C++11-first progression and extremely tiny steps. Choose the next representation or algorithm when a concrete need appears, and revisit earlier decisions when evidence changes. The current two-row example needs only scalar variables; no container is assigned merely because the plan mentions one. Do not pre-generate thousands of mandatory implementation tasks.
+
+### Recording later decisions
+
+Use this section as the starting point when discussing scope, efficiency, representation or algorithm choices again. Record a meaningful change where it belongs rather than relying on chat memory:
+- **DSA_CURRICULUM.md:** DSA scope, inclusion rules, applications and learning expectations.
+- **CPP_CURRICULUM.md / ROADMAP.md:** C++ coverage or mathematical-phase changes, only when affected.
+- **DEVELOPMENT.md:** standing implementation, teaching or verification workflow changes.
+- **MILESTONES.md / SESSION_HANDOFF.md:** confirmed progress, unresolved questions and the exact next unfinished action.
+
+For each meaningful decision, record the problem or learning need, chosen approach, assumptions and rationale, alternatives considered, evidence or remaining uncertainty, and consequences for scope or future work. Distinguish a proposal from an adopted plan and both from implemented/tested behavior. Resolve conflicting documents explicitly. A planning discussion never marks a code microstep complete.
 
 ## Three levels of inclusion
 1. **Core:** naturally required by the approved numerical engine; introduce when the learner reaches the need.
