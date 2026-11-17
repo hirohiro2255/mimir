@@ -1,30 +1,36 @@
 # Mímir — Session Handoff
 **Snapshot date:** 17 November 2026
-**Status:** Fresh-session handoff after confirmed completion of −1.0.102. No source, Makefile or tests edited by the assistant.
+**Status:** Checkpoint after confirmed completion of −1.0.127; −1.0.128 introduced and unfinished. Source state is learner-reported. No source, Makefile or tests edited by the assistant.
 
 ## 1. Resume here — most important
 - Project −1, Phase 0 — Mathematical Function Explorer.
-- **Last explicitly confirmed step: −1.0.102.** Learner verified rows -3 9 and 4 16.
-- **Next exact unfinished step: −1.0.103 — change only the initial x value from -3.0 to 0.0.**
-- Status: planned for the next session; not yet taught as an edit, performed, saved, compiled or run.
-- First action: explain zero as another known-value check, ask the learner to make that single initializer change, preserve the later assignment x = 4.0 and all other statements, and paste the declaration for review. Stop before compilation.
-- Subsequent build/run checks must be assigned separately; expected future output is 0 0 and 4 16, not observed yet.
-- No pending unresolved error or conceptual question. Do not repeat the completed const experiment.
+- **Last explicitly confirmed step: −1.0.127.** The learner's empty if block conditioned on std::cin.fail() was reviewed.
+- **Next exact unfinished step: −1.0.128 — add a statement returning 1 inside that block.**
+- Status: already introduced; the learner paused before submitting the updated block. Do not mark the return statement complete.
+- First action: briefly remind the learner of this pending edit and ask them to paste the updated block. Stop before compilation.
+- Preserve the temporary failure diagnostic, input prompt, input statement, both square calls and later assignment to 4.0.
+- Compilation of the conditional block, early termination and failure exit status must be verified in later separate microsteps.
 
 ## 2. Current working state — learner-reported, pasted snippets reviewed
 Reported environment: macOS, Apple Clang 21.0.0, GNU Make 3.81; C++11 with -Wall -Wextra -Wpedantic -g -O0.
 The Makefile defines CXX = clang++ and CXXFLAGS with those six options; the recipe references both variables. Timestamp-triggered and forced builds were observed.
 src/main.cpp includes iostream. A declaration of square above main returns double and takes double value. Its definition below main uses a const double value parameter and returns value * value, with four-space body indentation.
-main initializes x to -3.0, initializes y through square(x), prints x and y separated by a space and followed by a newline, changes x to 4.0, reassigns y through square(x), and prints the second pair.
+The following source state is reconstructed from learner-pasted snippets, instructions and reported output, not independent repository inspection. main initializes x to 0.5, prints the prompt "Enter x: ", reads into x, and prints a temporary std::cin.fail() diagnostic. Both numerical results still use square(x), with the later assignment x = 4.0 preserved. The square declaration above main takes double value; its definition below main takes const double value and returns value * value. Both earlier temporary assignments inside square remain removed.
+
+The latest reported build was −1.0.123, with the expected compiler command and no diagnostics reported. In −1.0.124, input hello produced diagnostic 1 followed by rows 0 0 and 4 16. In −1.0.125, input 3 produced diagnostic 0 followed by rows 3 9 and 4 16. These were manually reported checks, not automated tests.
+
+After that build and those runs, the learner supplied an empty if block conditioned on std::cin.fail() in −1.0.127. Its compilation has not been confirmed. Adding the return statement in −1.0.128 is still awaiting submission. No successful early termination or failure exit status has been verified.
 Both temporary assignments of 10 inside square are absent. An earlier non-const experiment produced rows 3 100 and 4 100 without changing caller x. A later deliberate reassignment of the const parameter produced the expected Clang diagnostic and Make Error 1; it was removed, rebuilt and the repaired program verified.
 Learner initially put const on the return type, then corrected it to the parameter. Learner explained arguments versus parameters, copied parameter independence, initialization versus reassignment, and why an older executable can still run after failed compilation.
-For −1.0.100/101 the learner supplied the rebuild command before the negative initializer snippet; the declaration was subsequently reviewed and that reported build accepted without another rebuild. −1.0.102 confirms actual output -3 9 and 4 16.
+Historical checkpoint: −1.0.102 verified rows -3 9 and 4 16. See MILESTONES.md for the subsequent verified steps through −1.0.127; no later implementation progress is confirmed.
 tests/ exists, but no test files/harness, Git initialization, commits, extra source files, loops, containers or formal DSA analysis are confirmed. mimir.dSYM was previously observed.
 The assistant reviewed pasted snippets and terminal output, not the Mac repository. project.zip remains uninspected and is not the current handoff package. No source or Makefile edits by the assistant are claimed. Later successful builds showed compiler commands with no diagnostics reported; separate exit-status checks were not requested.
 
 ## 3. Teaching agreement
 Read AGENTS.md first and keep it verbatim. The learner writes implementations; assistant teaches, asks guiding questions, reviews and explains. Illustrations are normally 2–5 lines, never entire functions/files or full implementations. One tiny action, a concrete check and a stop point. No advance without confirmation. Conceptual detours do not complete code steps.
 Tests/TDD and Git are introduced deliberately when meaningful, not retroactively presumed.
+
+The learner adopted the WatchAndCode-informed addition recorded in DEVELOPMENT.md and WATCHANDCODE_REVIEW.md. Sometimes ask for a prediction before revealing expected behavior; trace execution, start from tiny requirements, test one hypothesis, review reasoning and use occasional independent variations. Apply these selectively, through separate tiny actions. Preserve graduated hints, learner-authored code and the existing mastery rubric. Use C++11 semantics and distinguish observed behavior from portable guarantees.
 
 ## 4. Goals and new DSA agreement
 Preserve the twelve mathematical phases, full C++11 baseline, standard-library-only rule and GNU Make. Later modernize C++14 → C++17 → C++20 → C++23; C++26 optional. Preserve the three Stroustrup books as the comprehensive C++ mastery benchmark. Breadth does not imply mastery; use the evidence rubric and optional independent labs.
@@ -42,7 +48,8 @@ Keep 4-space indentation, project naming rules and numerical verification policy
 5. CPP_CURRICULUM.md — comprehensive C++ coverage/evidence.
 6. DSA_CURRICULUM.md — applied DSA plan and selective book mapping.
 7. CODING_STANDARDS.md and TESTING.md — conventions and verification.
-Current checkpoints have been reconciled to −1.0.102 / −1.0.103. No later progress may be inferred.
+8. WATCHANDCODE_REVIEW.md — public-source review, adopted teaching adaptations and their limits.
+Current checkpoint: −1.0.127 complete / −1.0.128 unfinished. The WatchAndCode review is a teaching agreement, not additional implementation progress.
 
 ## 6. Standing protocol — update both files before every session switch
 
@@ -57,34 +64,15 @@ Current checkpoints have been reconciled to −1.0.102 / −1.0.103. No later pr
 
 **At the start of each fresh session:** read the attached documents before proceeding, check for contradictions, and resume at the single next unfinished microstep. Do not skip ahead.
 
-**Current snapshot:** −1.0.102 is confirmed complete; −1.0.103 is planned and not started.
+**Current snapshot:** −1.0.127 is confirmed complete; −1.0.128 was introduced and is awaiting the learner's updated block. No compilation of the conditional block has been confirmed.
 
 
 ## 7. Starting the fresh session
-Download Mimir_Documentation_2026-11-17.zip and extract it. Keep the documents with the existing project; replace documentation only, not source, Makefile, tests or generated executables. For reliable access, attach the ten project Markdown files individually to the new conversation; the ZIP can also be attached as a convenience. NEXT_SESSION_PROMPT.md contains the exact opening message below and is the eleventh Markdown file in the package.
-Use only this dated package for the current state; the 16 November archive and older project.zip are superseded as handoff sources. Preserve the old conversation if useful; no deletion is required.
-If a file is unreadable in the new conversation, the assistant should state the gap explicitly, ask for the specific missing document, and not pretend to have inspected it.
 
-### Copy-paste opening message
-Hello! Please continue **Mímir — Project −1**, my long-term C++ mastery and numerical computing project. This is a continuation, not a restart.
+Use Mimir_Documentation_2026-11-17_Revised.zip, containing twelve current Markdown documents, including WATCHANDCODE_REVIEW.md and NEXT_SESSION_PROMPT.md. This revised package supersedes the earlier archive of the same date, which contained checkpoint −1.0.102 / −1.0.103.
 
-I have attached the latest documentation dated **17 November 2026**. Read **AGENTS.md first**, then **SESSION_HANDOFF.md**, **MILESTONES.md**, and **DEVELOPMENT.md**. Also read **README.md**, **ROADMAP.md**, **CPP_CURRICULUM.md**, **DSA_CURRICULUM.md**, **CODING_STANDARDS.md**, and **TESTING.md** for the agreed scope and policies.
+Extract and replace documentation only; retain the learner's source, Makefile, tests and generated programs. Attach the current documents individually when possible. NEXT_SESSION_PROMPT.md contains the opening message and agrees with this handoff.
 
-You are my teaching assistant, not my code generator. I write all implementation code. Use one extremely tiny, verifiable action per exchange; explain how and why, review my work, ask occasional understanding questions, and wait for my confirmation. Do not generate whole functions, whole files or full implementations. Keep illustrative snippets to roughly 2–5 lines.
+Read AGENTS.md first, then this handoff, milestones and development process, followed by the remaining scope and policy documents and the WatchAndCode review. If a required document is unreadable, state the gap and request that specific document; do not claim to have inspected it.
 
-**Exact checkpoint**
-- Phase 0 — Mathematical Function Explorer.
-- Last confirmed step: **−1.0.102**.
-- Latest verified output: two rows, **-3 9** and **4 16**.
-- Next planned, unfinished step: **−1.0.103 — change only the initial value of x from -3.0 to 0.0**. I have not made this edit. Preserve the later assignment to 4.0. Ask me to paste the updated declaration, then stop before compilation.
-
-The square function is declared above main with a double parameter and defined below main with a **const double value** parameter, returning value * value. Both results in main use square(x). The deliberate const-reassignment compilation error was inspected, the invalid assignment removed, and the valid program rebuilt and run successfully. Do not repeat that experiment.
-
-Continue **C++11 first**, with GNU Make and the standard library only. Preserve our comprehensive C++ mastery benchmark using the three Stroustrup books. Apply the selective DSA plan and its recorded working expectations when concrete needs arise; do not force every topic from Goodrich/Tamassia/Mount, Weiss or CLRS into Mímir.
-
-The documented code state is learner-reported, with pasted snippets and terminal output reviewed. Do not claim independent repository inspection. No Git initialization, automated test suite or container implementation has been confirmed.
-
-First briefly confirm the documentation and exact checkpoint, explain any contradiction, then introduce **only −1.0.103**. Before every future session switch, update the milestones and handoff, reconcile checkpoint statements and provide downloadable Markdown files and a fresh ZIP.
-
-
-Before every future session switch, follow Section 6 and deliver refreshed individual handoff files and a full documentation ZIP. Do not replay completed lessons or mark planned DSA work as implemented.
+Before every future session switch, follow Section 6, reconcile all checkpoint statements and provide updated Markdown files and a fresh ZIP. State any file-creation limitation explicitly; distinguish unsaved drafts from saved files.

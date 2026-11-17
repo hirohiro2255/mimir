@@ -3,6 +3,10 @@
 ## Philosophy
 Tests are part of learning, not an afterthought. Start with a simple `if` and a meaningful exit status; evolve only when repeated boilerplate justifies a helper. The learner writes tests and implementation, guided by [AGENTS.md](AGENTS.md).
 
+For learning experiments, sometimes record the learner's prediction and reasoning before revealing expected behavior or executing the check. Compare actual behavior with that prediction; investigate a mismatch through one hypothesis and one focused check at a time. See [DEVELOPMENT.md](DEVELOPMENT.md) and [WATCHANDCODE_REVIEW.md](WATCHANDCODE_REVIEW.md).
+
+A prediction exercise does not replace an independently justified test oracle. Passing examples do not prove general correctness, and observed behavior does not by itself establish a portable language guarantee. Keep these learning checks separate from claims that an automated test suite exists.
+
 ## Initial test harness
 - C++11 standard library only; no external testing framework.
 - Separate test executable as soon as it is useful.

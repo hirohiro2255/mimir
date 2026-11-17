@@ -19,6 +19,8 @@ The planned engine will explore function evaluation, limits and numerical precis
 ## Teaching agreement
 Read [AGENTS.md](AGENTS.md) before helping with implementation. The learner writes the code; the assistant explains, guides, reviews, and provides only tiny illustrative snippets (normally 2–5 lines). Never jump to whole implementations.
 
+The WatchAndCode-informed addition is recorded in [DEVELOPMENT.md](DEVELOPMENT.md) and [WATCHANDCODE_REVIEW.md](WATCHANDCODE_REVIEW.md): selective prediction, execution tracing, requirements-based reasoning, hypothesis-driven debugging and independent practice, while preserving tiny steps and graduated guidance.
+
 ## Project organization (initial plan)
 ```text
 project-minus-one/
@@ -33,6 +35,6 @@ project-minus-one/
 └── tests/              # created as tests begin
 ```
 
-Current progress is recorded in [MILESTONES.md](MILESTONES.md) and [SESSION_HANDOFF.md](SESSION_HANDOFF.md). **Last confirmed step:** −1.0.102. **Next unfinished step:** −1.0.103 — change only the initial value of x from -3.0 to 0.0. The learner confirmed output `-3 9` and `4 16`; square's definition now takes a const double parameter. The next edit is planned and has not been performed.
+Current progress is recorded in [MILESTONES.md](MILESTONES.md) and [SESSION_HANDOFF.md](SESSION_HANDOFF.md). **Last confirmed step:** −1.0.127. **Next unfinished step:** −1.0.128 — add a statement returning 1 inside the reviewed failure-condition block, then paste the block for review before compilation. Keyboard input, a prompt and a temporary stream-failure diagnostic have been verified. With input 3, the latest reported run printed diagnostic 0 followed by rows 3 9 and 4 16. The empty conditional block was added afterward and has not been confirmed compiled. All source state is learner-reported.
 
 The comprehensive C++ benchmark is in [CPP_CURRICULUM.md](CPP_CURRICULUM.md). Selective applied data structures, correctness, complexity and representation decisions are in [DSA_CURRICULUM.md](DSA_CURRICULUM.md), informed by Goodrich/Tamassia/Mount, Weiss and CLRS without requiring every textbook subject inside the numerical engine. These documents describe plans and evidence, not generated implementation code.

@@ -157,6 +157,6 @@ The complete C++11 engine and essential C++11 curriculum work must be tested and
 
 ## Current checkpoint — 17 November 2026
 
-**Last confirmed step:** −1.0.102. **Next unfinished step:** −1.0.103 — change only the initial value of x from -3.0 to 0.0. The learner confirmed output `-3 9` and `4 16`; square's definition now takes a const double parameter. The next edit is planned and has not been performed.
+**Last confirmed step:** −1.0.127. **Next unfinished step:** −1.0.128 — add a statement returning 1 inside the reviewed failure-condition block, then paste the block for review before compilation. Keyboard input, a prompt and a temporary stream-failure diagnostic have been verified. With input 3, the latest reported run printed diagnostic 0 followed by rows 3 9 and 4 16. The empty conditional block was added afterward and has not been confirmed compiled. All source state is learner-reported.
 
 This is a documentation update only; no learner source, Makefile, tests or Git state was modified.

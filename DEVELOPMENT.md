@@ -58,6 +58,24 @@ Where appropriate for new behavior: explain → focused learner-written failing 
 
 A microstep may be shorter than a function or feature. The learner's understanding matters more than pace. A single step can span multiple conversations or days.
 
+### WatchAndCode-informed teaching addition — 17 November 2026
+
+The learner requested and adopted compatible practices after a review of WatchAndCode's public materials. Sources, findings, limitations and adaptations are recorded in [WATCHANDCODE_REVIEW.md](WATCHANDCODE_REVIEW.md). This supplements the existing agreement; AGENTS.md remains unchanged.
+
+- Sometimes ask for the learner's prediction and reasoning before revealing expected behavior.
+- Trace a few execution steps, variable values, function calls or stream states when useful.
+- Begin meaningful changes with one tiny observable requirement; let the learner describe the needed behavior before selecting syntax.
+- Investigate surprises through one hypothesis and one distinguishing check at a time.
+- Review reasoning, assumptions and clarity alongside code.
+- Occasionally use an unfamiliar tiny variation to assess independent application.
+- Briefly revisit the assumption behind a meaningful misconception.
+
+Select these practices when useful; do not bundle them into every exchange. Preserve one extremely tiny action, review, verification and confirmation at a time.
+
+Use graduated hints rather than a blanket no-hints policy. Keep illustrations to roughly 2–5 lines; do not supply full reference implementations. Use C++11 semantics rather than transferring JavaScript rules. Experiments do not establish portable guarantees merely because one run succeeded.
+
+Keep guided completion distinct from independent mastery. Preserve the existing competence rubric, numerical verification policy, selective DSA scope and modernization order. This teaching agreement does not itself complete an implementation microstep.
+
 ## New agreement — Serious C++ mastery
 
 Mímir now has two complementary paths:
@@ -87,7 +105,7 @@ Some topics—advanced template techniques, deep inheritance, low-level memory, 
 - Do not add entire features, directories or test infrastructure ahead of their teaching step.
 - Preserve mathematical boundaries: no tensors, automatic differentiation, neural network, language model, GPU or CFD inside Mímir.
 - Record **confirmed** progress in [MILESTONES.md](MILESTONES.md).
-- Current checkpoint (17 November 2026): **−1.0.102 confirmed complete**; **−1.0.103 next, not started**. The const-parameter square function is verified with rows -3 9 and 4 16. Refer to [MILESTONES.md](MILESTONES.md) and [SESSION_HANDOFF.md](SESSION_HANDOFF.md).
+- Current checkpoint (17 November 2026): **Last confirmed step:** −1.0.127. **Next unfinished step:** −1.0.128 — add a statement returning 1 inside the reviewed failure-condition block, then paste the block for review before compilation. Keyboard input, a prompt and a temporary stream-failure diagnostic have been verified. With input 3, the latest reported run printed diagnostic 0 followed by rows 3 9 and 4 16. The empty conditional block was added afterward and has not been confirmed compiled. All source state is learner-reported. See [MILESTONES.md](MILESTONES.md) and [SESSION_HANDOFF.md](SESSION_HANDOFF.md).
 - When documentation changes, distinguish *planning* from *implemented/tested* functionality.
 
 ## Conversation handoff and durable context
@@ -126,4 +144,4 @@ The engine uses appropriate standard-library containers and algorithms. Selected
 
 The learner asked to preserve the follow-up discussion for future reference. [DSA_CURRICULUM.md — Working expectations and future discussions](DSA_CURRICULUM.md#working-expectations-and-future-discussions) records the standing distinctions between language mastery, algorithmic understanding, analysis and application; workload-specific efficiency; learner-written labs and standard-library selection; numerical correctness/error/convergence/cost; selective DSA-book scope; and just-in-time refinement of a stable plan.
 
-When a meaningful decision changes, record its problem, chosen approach, assumptions/rationale, alternatives, evidence/uncertainty and scope consequences in the affected document. Mark proposed, adopted and implemented work distinctly. Preserve the exact confirmed checkpoint when discussion does not advance code. Current checkpoint: −1.0.102 complete; −1.0.103 planned, not started.
+When a meaningful decision changes, record its problem, chosen approach, assumptions/rationale, alternatives, evidence/uncertainty and scope consequences in the affected document. Mark proposed, adopted and implemented work distinctly. Preserve the exact confirmed checkpoint when discussion does not advance code. Current checkpoint: −1.0.127 complete; −1.0.128 introduced and awaiting the learner's updated block.

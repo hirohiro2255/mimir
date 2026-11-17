@@ -3,8 +3,8 @@
 **Checkpoint date:** 17 November 2026  
 **Project:** −1 — C++ mastery through numerical computing  
 **Phase:** 0 — Mathematical Function Explorer  
-**Last explicitly confirmed step:** **−1.0.102**  
-**Next uncompleted step:** **−1.0.103**
+**Last explicitly confirmed step:** **−1.0.127**  
+**Next uncompleted step:** **−1.0.128 — introduced, awaiting learner submission**
 
 This register is reconstructed from the learner's reports in the conversation. It is **not an independent inspection** of the Mac's `mimir/` directory. Do not infer unreported Git commits, test runs or file contents. Two steps were covered without a separately recorded command result; this does **not** block proceeding to the agreed next step.
 
@@ -117,17 +117,44 @@ This register is reconstructed from the learner's reports in the conversation. I
 | **−1.0.100** | Change initial x to -3.0; learner-pasted declaration reviewed after rebuild output | DONE — learner evidence as described |
 | **−1.0.101** | Compile negative-input change; learner had already reported compiler command before declaration review, accepted without redundant rebuild; no diagnostics reported | DONE — learner evidence as described |
 | **−1.0.102** | Run; rows -3 9 and 4 16 explicitly confirmed | DONE — learner evidence as described |
+| **−1.0.103** | Change initial x to 0.0; declaration reviewed | DONE — learner snippet |
+| **−1.0.104** | Compile zero-input change; no diagnostics reported | DONE — learner output |
+| **−1.0.105** | Run; rows 0 0 and 4 16 confirmed | DONE — learner report |
+| **−1.0.106** | Distinguish argument x from parameter value; clarify separate variables/scopes versus pass-by-value | DONE — explanation with clarification |
+| **−1.0.107** | Explain const parameter does not make caller x constant | DONE — learner explanation |
+| **−1.0.108** | Change initial x to 0.5; declaration reviewed | DONE — learner snippet |
+| **−1.0.109** | Compile fractional-input change; no diagnostics reported | DONE — learner output |
+| **−1.0.110** | Run; rows 0.5 0.25 and 4 16 confirmed | DONE — learner report |
+| **−1.0.111** | Add std::cin extraction into x before initializing y | DONE — learner snippet |
+| **−1.0.112** | Compile input statement; no diagnostics reported | DONE — learner output |
+| **−1.0.113** | Observe silent wait for input | DONE — learner report |
+| **−1.0.114** | Enter 3; rows 3 9 and 4 16 confirmed | DONE — learner report |
+| **−1.0.115** | Add prompt with trailing space and no newline | DONE — learner snippet |
+| **−1.0.116** | Compile prompt; no diagnostics reported | DONE — learner output |
+| **−1.0.117** | Observe prompt and input wait | DONE — learner report |
+| **−1.0.118** | Enter -2; rows -2 4 and 4 16 confirmed | DONE — learner report |
+| **−1.0.119** | Explain successful input replaces initial x value | DONE — learner explanation |
+| **−1.0.120** | Predict failure for hello; clarify attempted double conversion rather than reading into string variable | DONE — prediction with clarification |
+| **−1.0.121** | Enter hello; rows 0 0 and 4 16 observed without failure handling | DONE — learner output |
+| **−1.0.122** | Print std::cin.fail() and newline; discarded return value corrected | DONE — revised learner statement |
+| **−1.0.123** | Compile diagnostic; no diagnostics reported | DONE — learner output |
+| **−1.0.124** | Enter hello; diagnostic 1, then rows 0 0 and 4 16 | DONE — learner output |
+| **−1.0.125** | Enter 3; diagnostic 0, then rows 3 9 and 4 16 | DONE — learner output |
+| **−1.0.126** | Identify true failure status as stopping condition | DONE — learner explanation |
+| **−1.0.127** | Write empty if block conditioned on std::cin.fail(); reviewed, not confirmed compiled | DONE — learner snippet |
 
 ## Next microstep — only one assigned
 
-### −1.0.103 — Check the zero input next
+### −1.0.128 — Stop on input failure
 
-- **Status:** PLANNED / NOT STARTED. Selected for the next session; not yet taught or completed as a learner action.
-- **One learner action:** change only the initial value in the declaration of x from -3.0 to 0.0. Preserve the later x = 4.0 assignment, both function calls and output statements.
-- **Why:** extend known-value checks to zero after verified positive and negative inputs.
-- **Check for this step:** learner pastes the updated declaration; no compilation or run yet.
-- **Future verification, separate microsteps:** rebuild, then expect rows 0 0 and 4 16. Do not mark these checks done in advance.
-- **Last verified output:** rows -3 9 and 4 16, confirmed in −1.0.102.
+- **Status:** INTRODUCED / AWAITING LEARNER SUBMISSION.
+- **Existing reviewed edit:** an empty if block conditioned on std::cin.fail(), intended immediately after the temporary diagnostic and before numerical calculation.
+- **One learner action:** add a statement returning 1 inside that block.
+- **Why:** returning from main ends execution; a nonzero exit status signals failure.
+- **Formatting:** indent the statement four spaces deeper than the if; align the closing brace with the if.
+- **Check:** learner pastes the updated block for review. Stop before compilation.
+- **Not yet verified:** compilation of the conditional block, early termination, or failure exit status.
+- **Latest reported run:** input 3 produced diagnostic 0, then rows 3 9 and 4 16 in −1.0.125.
 
 ## Current reported build snapshot
 
@@ -151,7 +178,11 @@ mimir: src/main.cpp
 	$(CXX) $(CXXFLAGS) src/main.cpp -o mimir
 ```
 
-The learner reported successful builds using both variables and ordinary make for saved source changes. No diagnostics were reported; separate shell exit-status checks were not requested in these later steps. main initializes x to -3.0, obtains y from square(x), prints the pair, assigns x to 4.0, reassigns y through square(x), and prints the second pair. The declaration above main uses double value; the definition below main now uses const double value and returns value * value. Both temporary assignments of 10 inside square have been removed. Last verified output is -3 9 and 4 16. The existing local project may also contain the separately downloaded documentation from earlier conversations; this has not been inspected.
+The following source state is reconstructed from learner-pasted snippets, instructions and reported output, not independent repository inspection. main initializes x to 0.5, prints the prompt "Enter x: ", reads into x, and prints a temporary std::cin.fail() diagnostic. Both numerical results still use square(x), with the later assignment x = 4.0 preserved. The square declaration above main takes double value; its definition below main takes const double value and returns value * value. Both earlier temporary assignments inside square remain removed.
+
+The latest reported build was −1.0.123, with the expected compiler command and no diagnostics reported. In −1.0.124, input hello produced diagnostic 1 followed by rows 0 0 and 4 16. In −1.0.125, input 3 produced diagnostic 0 followed by rows 3 9 and 4 16. These were manually reported checks, not automated tests.
+
+After that build and those runs, the learner supplied an empty if block conditioned on std::cin.fail() in −1.0.127. Its compilation has not been confirmed. Adding the return statement in −1.0.128 is still awaiting submission. No successful early termination or failure exit status has been verified.
 
 ## Progress-recording rules
 
@@ -165,4 +196,4 @@ The learner reported successful builds using both variables and ordinary make fo
 
 Learner requested selective application of Goodrich/Tamassia/Mount, Weiss (4th) and CLRS (4th) to Project −1. Added DSA_CURRICULUM.md and linked the phase applications, design/analysis workflow and evidence rules in the existing documentation. Core, conditional and lab/deferred topics are explicit. No arrays/vectors, search/sort, formal cost/invariant analysis, automated tests or Git have been confirmed. The learner's full repository and project.zip have not been inspected; pasted snippets and output are the evidence.
 ## 17 November 2026 handoff
-−1.0.102 is complete. −1.0.103 is planned and not started. The const-parameter experiment was repaired and verified before switching sessions. No source edits, Git initialization or automated tests by the assistant are claimed. Existing DSA scope and six working expectations remain unchanged.
+−1.0.127 is complete. −1.0.128 was introduced and remains unfinished: the learner has not submitted the conditional block containing a statement returning 1. The WatchAndCode-informed teaching addition was adopted during this pause; see DEVELOPMENT.md and WATCHANDCODE_REVIEW.md. No assistant source edits, Git initialization, automated test suite or container implementation are claimed. Existing DSA scope and six working expectations remain unchanged.

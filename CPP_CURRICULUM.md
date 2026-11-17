@@ -41,6 +41,8 @@ A topic is not considered **deeply mastered** until Level 4 (or a documented alt
 - Review a deliberately invalid *compilation* exercise separately from the main green build.
 - Revisit a concept months later through a harder, unfamiliar problem.
 
+The WatchAndCode-informed practices in [DEVELOPMENT.md](DEVELOPMENT.md) and [WATCHANDCODE_REVIEW.md](WATCHANDCODE_REVIEW.md) support these activities. Use occasional predictions, traces, independent variations and reflection to gather evidence for the existing 0–4 rubric. Guided microstep completion does not establish independent transfer or full-track mastery.
+
 ## Part I — C++11 foundations, core engine and companion labs
 
 The following tracks are **thematic**, not fixed chronological weeks. Overlap is intentional. The engine provides authentic practice where suitable; a small separate lab handles topics that would otherwise make Mímir less maintainable.
@@ -53,7 +55,7 @@ The following tracks are **thematic**, not fixed chronological weeks. Overlap is
 
 **Evidence:** explain compile versus link; independently diagnose a missing definition; build two source files using a tiny Makefile; demonstrate a change that does and does not trigger rebuild.
 
-**Progress:** introduced and practiced through −1.0.102: compilation, timestamp rebuilds, Make variables, scalar calculations, functions, pass-by-value, const-parameter diagnostics and recovery, and a negative-input check. C01 is not complete. Next unfinished microstep is −1.0.103; see MILESTONES.md.
+**Progress:** builds have been reported through −1.0.123 and runs through −1.0.125. Subsequent conceptual work and an empty conditional block were reviewed through −1.0.127; that block has not been confirmed compiled. C01 is not complete. The next unfinished microstep is −1.0.128; see MILESTONES.md.
 
 ### C02 — Fundamental types, objects, values and conversions
 
@@ -269,11 +271,12 @@ A track status starts as **not assessed** unless the learner has actually demons
 
 | Track | Current evidence | Level / status |
 | --- | --- | --- |
-| C01 — Toolchain/build | Confirmed builds and runs through −1.0.102; Make variables, incremental builds, functions, deliberate const diagnostic/recovery and stale-executable reasoning | **1–2 for introductory subtopics only**, not assessed for full track |
+| C01 — Toolchain/build | Reported builds through −1.0.123 and runs through −1.0.125; existing Make variables and C++11 flags retained; conditional edit in −1.0.127 not yet confirmed compiled | **1–2 for introductory subtopics only**, not assessed for full track |
 | C02 — Types | Used double literals and variables; explained stored initialization versus reassignment after correcting an initial misconception | Introductory evidence only; full track not assessed |
-| C13 — I/O | Printed scalar results, newline/space characters and two input/result rows | Introductory evidence only; full track not assessed |
+| C13 — I/O | Printed scalar results and a prompt; read numbers into x; observed failed numeric extraction and printed std::cin.fail() for valid and invalid input | Introductory evidence through −1.0.125; recovery and early termination not yet verified |
 | C04 — Functions | Learner wrote square, used declaration/definition/calls/return, explained argument versus parameter and tested by-value independence | Introductory application and reasoning; not full-track mastery |
 | C02/C04/C15 — const and diagnostics | Corrected const placement from return type to parameter; predicted and observed reassignment rejection, interpreted the diagnostic and restored a working build; negative input -3 produced 9 | Focused evidence only; no full-track mastery claim |
+| C03/C15 — Conditional failure handling | Learner identified failure as the stopping condition and wrote an empty if block in −1.0.127; −1.0.128 return statement is awaiting submission | Introductory condition reasoning only; conditional termination not yet compiled or run |
 | D01–D08 — DSA | Plan added; no containers, search/sort, formal invariants or complexity analysis demonstrated yet | Planned; not assessed |
 | Remaining C++ subtopics/tracks | No additional mastery claim | Not assessed |
 | M14, M17, M20, M23 | Not started; C++11 engine first | Not started |
@@ -297,6 +300,6 @@ When revising this document, record:
 - No arbitrary deadline, fixed number of steps, or unearned certification of mastery.
 - Not every possible C++ specification detail will become a full standalone engine feature; genuinely relevant depth is demonstrated through *appropriate experiments and explanations*.
 
-**Last confirmed step:** −1.0.102. **Next unfinished step:** −1.0.103 — change only the initial value of x from -3.0 to 0.0. The learner confirmed output `-3 9` and `4 16`; square's definition now takes a const double parameter. The next edit is planned and has not been performed.
+**Last confirmed step:** −1.0.127. **Next unfinished step:** −1.0.128 — add a statement returning 1 inside the reviewed failure-condition block, then paste the block for review before compilation. Keyboard input, a prompt and a temporary stream-failure diagnostic have been verified. With input 3, the latest reported run printed diagnostic 0 followed by rows 3 9 and 4 16. The empty conditional block was added afterward and has not been confirmed compiled. All source state is learner-reported.
 
 The DSA plan remains unchanged. Resume the single next microstep from the handoff.

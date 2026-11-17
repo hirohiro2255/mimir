@@ -2,11 +2,13 @@
 **Version:** 1.1 — 16 November 2026
 **Scope:** Project −1; C++11 first; additions to the existing twelve mathematical phases.
 **Status:** Approved planning direction from the learner's request. No new DSA implementation is claimed.
-**Checkpoint updated 17 November 2026:** −1.0.102 confirmed complete; −1.0.103 planned, not started. DSA scope and working expectations are unchanged.
+**Checkpoint updated 17 November 2026:** −1.0.127 confirmed complete; −1.0.128 introduced and awaiting learner submission. DSA scope and working expectations are unchanged.
 
 ## Purpose and teaching agreement
 Choosing representations and algorithms is an explicit learning objective alongside C++ semantics and numerical mathematics. Existing C11/C12/C14/C18/C19 tracks already contain related material, but need a coherent application and verification plan.
 The learner writes code under AGENTS.md, with one tiny action, review, verification and confirmation at a time. No fixed deadline, mass implementation assignment or forced architecture. A planned topic is not evidence of mastery.
+
+The WatchAndCode-informed teaching addition is documented in [DEVELOPMENT.md](DEVELOPMENT.md) and [WATCHANDCODE_REVIEW.md](WATCHANDCODE_REVIEW.md). Apply requirements, tracing, independent reasoning, focused experiments and review when useful. Its broader algorithm curriculum is not imported into Mímir. Preserve the six working expectations, inclusion rules and distinction between correctness, numerical behavior and cost.
 
 ## Reference books and limits of this review
 This plan uses public descriptions and tables of contents, not a claim to have read the complete books or audited every exercise.
@@ -122,7 +124,7 @@ For a nontrivial algorithm or representation, eventually demonstrate:
 Do these through separate microsteps. No one-turn bundled assignment is implied.
 
 ## Current evidence and next action
-- Scalar input/output, square function calls, copies, initialization versus reassignment: learner demonstrated these through −1.0.102, including const-parameter diagnostics/recovery and a negative-input check.
+- Introductory evidence through −1.0.127 includes scalar calculations, square function calls, parameter reasoning, zero/fractional checks, keyboard input, a prompt, stream-failure observations and an empty conditional block. The conditional block has not been confirmed compiled; early termination is unfinished.
 - No arrays/vectors, container implementations, loop invariants, complexity derivations, search/sort implementations, Git initialization or automated tests are confirmed.
 - D01–D08 are planned, not assessed as mastered. The square function alone is not proof of algorithm-analysis proficiency.
-- Resume **−1.0.103 only**: change only the initial value of x from -3.0 to 0.0, preserving the later assignment of 4.0. Review the declaration before any compilation. This is a planned next step, not a completed or previously assigned edit.
+- Resume **−1.0.128 only**: add a statement returning 1 inside the reviewed failure-condition block and paste the updated block for review. The step was already introduced but remains unfinished. Stop before compilation.
